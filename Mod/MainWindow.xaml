@@ -1,0 +1,54 @@
+﻿<Window x:Class="DotaInstaller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="8"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:DotaInstaller="clr-namespace:DotaInstaller"
+        mc:Ignorable="d"
+        Title="Dota Installer" Height="720" Width="780"
+        x:Name="d2">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid Margin="5 5 5 5">
+        <StackPanel Orientation="Vertical" CanVerticallyScroll="True">
+            <materialDesign:Card Padding="32 32 32 16" >
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBlock Margin="0 0 0 10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Path To Steam: " TextWrapping="Wrap"></TextBlock>
+                    <TextBlock Margin="0 0 0 10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding SteamLocation}" />
+                    <StackPanel Orientation="Horizontal">
+                        <Button HorizontalAlignment="Left"  Width="100px" Click="Button_Click" Content="Locate" />
+                        <Label> <TextBlock Margin="100,0,0,0" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Sample Volume: " TextWrapping="Wrap"></TextBlock> </Label>
+                        <Slider AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="0" Orientation="Horizontal" Minimum="0" Maximum="100"  Value="50" ValueChanged="VolumnChange" Width="212" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:Card>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="485">
+                <ItemsControl Name="items" UseLayoutRounding="False" Margin="0" Width="Auto" ItemsSource="{Binding ListOfMods}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:Card FontSize="36" Padding="16" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,5,0,0">
+                                <StackPanel Orientation="Vertical" MinWidth="700">
+                                    <TextBlock Margin="0 0 0 10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding DisplayName}"/>
+                                    <TextBlock Margin="0 0 0 10"  Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding Description}"/>
+                                    <DockPanel>
+                                        <CheckBox DockPanel.Dock="Left" Content="Include" HorizontalContentAlignment="Left" HorizontalAlignment="Left" IsChecked="{Binding Selected}" />
+                                        <Button DockPanel.Dock="Right" Tag="{Binding SampleFile}" HorizontalContentAlignment="Right" Content="Sample" Click="SampleClick" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                                    </DockPanel>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </StackPanel>
+        <Button Content="Install" VerticalAlignment="Bottom" Panel.ZIndex="5" Click="Install"/>
+    </Grid>
+</Window>
