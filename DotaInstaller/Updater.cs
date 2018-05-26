@@ -1,36 +1,30 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Controls;
 using System.Xml.Serialization;
+using Octokit;
 
 namespace DotaInstaller
 {
     public class Updater
     {
-        public string EndPoint;
-        public static string VERSION_URL = "version.xml";
         public static string DOWNLOAD_FILE = "setup.msi";
-        public Uri VersionUri => new Uri(EndPoint + VERSION_URL);
-        public Uri DownloadUri => new Uri(EndPoint + DOWNLOAD_FILE);
+        public static string GIT_HEADER = "Reborn_Mod_Manager";
+        private readonly GitHubClient Client;
 
-        public Updater(string pEndPoint)
+        public Updater()
         {
-            EndPoint = pEndPoint;
+            Client = new GitHubClient(new ProductHeaderValue(GIT_HEADER));
         }
 
-        public Version CheckForUpdate()
+        public Release CheckForUpdate()
         {
             try
             {
-                var request = WebRequest.Create(VersionUri);
-                using (var response = request.GetResponse())
-                using (var stream = response.GetResponseStream())
-                using (var reader = new StreamReader(stream))
-                {
-                    var xml = new XmlSerializer(typeof(Version));
-                    return (Version)xml.Deserialize(reader);
-                }
+                var release = Client.Repository.Release.GetAll("shamrickus", "Reborn-Mod-Manager");
+                return release.Result[0];
             }
             catch
             {
@@ -38,25 +32,16 @@ namespace DotaInstaller
             }
         }
 
-        public async void Update(ProgressBar pProgressBar)
+        public async void Update(ProgressBar pProgressBar, Release version)
         {
+            var file = version.Assets.First(asset => asset.Name == "Setup.msi");
             var client = new WebClient();
             client.DownloadProgressChanged += (pSender, pArgs) => pProgressBar.Value = pArgs.ProgressPercentage;
-            await client.DownloadFileTaskAsync(DownloadUri.ToString(), DOWNLOAD_FILE);
+            await client.DownloadFileTaskAsync(file.BrowserDownloadUrl, DOWNLOAD_FILE);
 
             System.Diagnostics.Process.Start($"{Directory.GetCurrentDirectory()}\\{DOWNLOAD_FILE}");
 
             Environment.Exit(0);
         }
-    }
-
-    [XmlRoot("Version")]
-    public class Version
-    {
-        [XmlElement("Number")]
-        public string Number { get; set; }
-
-        [XmlElement("Changes")]
-        public string Changes { get; set; }
     }
 }

@@ -7,7 +7,6 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,27 +24,18 @@ namespace DotaInstaller
 
         public string SelectedPath;
 
+        private Version CurrentVersion; 
         private string _steamLocation;
 
         public MainWindow()
         {
-            AppDomain.CurrentDomain.UnhandledException += (object s, UnhandledExceptionEventArgs args) =>
+            Utilities.RegisterException();
+            if (!Utilities.CheckForAdmin())
             {
-                using (var writer = new StreamWriter($@"{Directory.GetCurrentDirectory()}\Error.txt"))
-                {
-                    var excp = args.ExceptionObject as Exception;
-#if !DEBUG
-                    writer.WriteLine(
-                        $"Message: {excp.Message}{Environment.NewLine}Stack Trace: {excp.StackTrace}{Environment.NewLine}");
-#else
-                    throw new Exception(excp.Message);
-#endif
-#pragma warning disable CS0162 // Unreachable code detected
-                    MessageBox.Show($"An exception has occurred!{Environment.NewLine}Exception: {excp.Message}");
-#pragma warning restore CS0162 // Unreachable code detected
-                }
-            };
-            CheckForAdmin();
+                MessageBox.Show("Please run the DotaInstaller as admin!");
+                Environment.Exit(1);
+            }
+            _updater = new Updater();
             var worker = new BGWorker();
             worker.Register(() =>
             {
@@ -61,8 +51,8 @@ namespace DotaInstaller
 
             VpkCompiler.Create();
             Mods = ModConfiguration.Read();
-
         }
+
 
         public object BringToFront()
         {
@@ -75,6 +65,8 @@ namespace DotaInstaller
         public event PropertyChangedEventHandler PropertyChanged;
 
         public bool ModsSelected = false;
+        private Updater _updater;
+
         public List<Mod> ActiveMods
         {
             get
@@ -120,6 +112,9 @@ namespace DotaInstaller
 
         private bool Error { get; set; }
 
+
+        public string EndPoint;
+
         public static void Set(string key, string value)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -134,20 +129,18 @@ namespace DotaInstaller
 
         public void CheckForUpdates()
         {
-            var updater = new Updater(ConfigurationManager.AppSettings["UpdateServer"]);
-            var version = updater.CheckForUpdate();
-            if (version != null)
+            var version = _updater.CheckForUpdate();
+            CurrentVersion = Utilities.BuildFromString(ConfigurationManager.AppSettings["CurrentVersion"]);
+            if (version != null && CurrentVersion != null && Utilities.BuildFromString(version.TagName) > CurrentVersion)
             {
-                if (MessageBox.Show($"Update {version.Number} found, would you like to update?", "Update?",
+                if (MessageBox.Show($"Update {version.TagName} found, would you like to update?", "Update?",
                         MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     primaryContent.Visibility = Visibility.Hidden;
                     progressBar.Visibility = Visibility.Visible;
-                    updater.Update(progressBar);
+                    _updater.Update(progressBar, version);
                 }
             }
-            else
-                MessageBox.Show("Unable to check for updates!");
         }
 
         [NotifyPropertyChangedInvocator]
@@ -161,21 +154,6 @@ namespace DotaInstaller
             UpdateLocation();
         }
 
-        private void CheckForAdmin()
-        {
-            bool admin;
-            using (WindowsIdentity iden = WindowsIdentity.GetCurrent())
-            {
-                var principal = new WindowsPrincipal(iden);
-                admin = principal.IsInRole(WindowsBuiltInRole.Administrator);
-            }
-
-            if (!admin)
-            {
-                MessageBox.Show("Please run the DotaInstaller as admin!");
-                Environment.Exit(1);
-            }
-        }
         private void Install(object sender, RoutedEventArgs e)
         {
             if (Error)
