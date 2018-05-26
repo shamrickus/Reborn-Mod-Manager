@@ -132,6 +132,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.manifest" />
+    <None Include="data\blink\darude.vsnd_c" />
+    <None Include="data\blink\spirit_gun.vsnd_c" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -166,7 +168,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="data\blink\dbz.mp3" />
+    <Content Include="data\blink\darude.mp3" />
+    <Content Include="data\blink\spirit_gun.mp3" />
+    <Content Include="data\runes.mp3" />
     <Content Include="filesystem_stdio.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -51,8 +51,14 @@
 
     <FileDescr>
       <Path>sounds\weapons\hero\lion</Path>
+      <Name>finger_of_death_impact.vsnd_c</Name>
+      <SourcePath>data\lion\finger_of_death_impact.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+    <FileDescr>
+      <Path>sounds\weapons\hero\lion</Path>
       <Name>finger_of_death.vsnd_c</Name>
-      <SourcePath>data\lion\spirit_gun.vsnd_c</SourcePath>
+      <SourcePath>data\lion\finger_of_death.vsnd_c</SourcePath>
       <Type>Sound</Type>
     </FileDescr>
   </Mod>

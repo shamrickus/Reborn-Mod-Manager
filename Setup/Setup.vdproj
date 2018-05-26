@@ -21,7 +21,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_20902A2B06154CC0AC5D6351585CD30A"
+        "MsmKey" = "8:_21548C3D37AA434E8AACC2D2EB9EBE68"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_28AD043749C747AA84823EE5B7B67A6D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2FD2AC66C82E47D7AC3BAEC56F5B81E4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_33FB10B83C674AC6B5B512D96C457117"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,7 +51,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_44AB7C6F2FAC42AEAA34CF76328917EC"
+        "MsmKey" = "8:_45EF2E1F854948D3B2404D90C090D0ED"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_49DEBC471C74468EAED95752E43528C7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,19 +69,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_60F77F35F57F4C949ED5142FB5EFF7E4"
+        "MsmKey" = "8:_649B39AEC51A4F429C17D432563D774B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_69932D2DDE5B4D1AAFB165F1F941EC7F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_79878641A6F342B9BACF6737F2B944D9"
+        "MsmKey" = "8:_83318B9EDD46406392A474FC0C4F2205"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -69,37 +87,37 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_85562F7A81814E029930090AEBF9F538"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8F13A9B207E24445A2A883A6856446C8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9E4FE183E3D54ED2BCE9625F8E676924"
+        "MsmKey" = "8:_C6266D3626B349898BAFFACE08F3FD68"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_ABA749F893A94A848257581D84E026AF"
+        "MsmKey" = "8:_C747C3891CD64FE7A1AA39B4EF8D3EDE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B17CCF135CB9455289242FF06C5B5893"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B90CDEF40BBE49CEAA1E9A12CAEF195C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BBD3705063C447EA92D234397F99A044"
+        "MsmKey" = "8:_DAECD6F21D3C48C9B4240BB597B351C8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -107,24 +125,6 @@
         {
         "MsmKey" = "8:_E02B339AA677E07C81F213BA7734478B"
         "OwnerKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E124282ED3B04CE38270F6429E80450E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E2DE200DA69044618137F544785D8176"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E647D8FF3A544441BD8CDFBE8C19A50A"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,13 +142,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F6CF1BA7511475643B1BA1CA9D69CB37"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8485519F7B94397C5982EA11D778811F"
+        "OwnerKey" = "8:_1D9B2AA647D843D664E771215619D7AD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -160,7 +154,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1D9B2AA647D843D664E771215619D7AD"
+        "OwnerKey" = "8:_8485519F7B94397C5982EA11D778811F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F6CF1BA7511475643B1BA1CA9D69CB37"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -265,6 +265,11 @@
             "AssemblyAsmDisplayName" = "8:NAudio, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_1D9B2AA647D843D664E771215619D7AD"
+                    {
+                    "Name" = "8:NAudio.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:NAudio.dll"
             "TargetName" = "8:"
@@ -284,10 +289,70 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_20902A2B06154CC0AC5D6351585CD30A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_21548C3D37AA434E8AACC2D2EB9EBE68"
             {
-            "SourcePath" = "8:..\\Mod\\tier0_s.dll"
-            "TargetName" = "8:tier0_s.dll"
+            "SourcePath" = "8:..\\DotaInstaller\\filesystem_stdio.dll"
+            "TargetName" = "8:filesystem_stdio.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_28AD043749C747AA84823EE5B7B67A6D"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\vpk.exe"
+            "TargetName" = "8:vpk.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2FD2AC66C82E47D7AC3BAEC56F5B81E4"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\data\\sandking\\darude.vsnd_c"
+            "TargetName" = "8:darude.vsnd_c"
+            "Tag" = "8:"
+            "Folder" = "8:_3B5ECB8CCAD745DAB9688671B2A9BC5B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_33FB10B83C674AC6B5B512D96C457117"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\vstdlib.dll"
+            "TargetName" = "8:vstdlib.dll"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
             "Condition" = "8:"
@@ -324,10 +389,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_44AB7C6F2FAC42AEAA34CF76328917EC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45EF2E1F854948D3B2404D90C090D0ED"
             {
-            "SourcePath" = "8:..\\Mod\\vstdlib_s.dll"
-            "TargetName" = "8:vstdlib_s.dll"
+            "SourcePath" = "8:..\\DotaInstaller\\data\\blink\\dbz.wav"
+            "TargetName" = "8:dbz.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_D8353C1FF3814670A81251B14A12734C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_49DEBC471C74468EAED95752E43528C7"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\tier0.dll"
+            "TargetName" = "8:tier0.dll"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
             "Condition" = "8:"
@@ -364,12 +449,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_60F77F35F57F4C949ED5142FB5EFF7E4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_649B39AEC51A4F429C17D432563D774B"
             {
-            "SourcePath" = "8:..\\Mod\\data\\sandking\\darude.vsnd_c"
-            "TargetName" = "8:darude.vsnd_c"
+            "SourcePath" = "8:..\\DotaInstaller\\data\\runes\\runes.mp3"
+            "TargetName" = "8:runes.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_3B5ECB8CCAD745DAB9688671B2A9BC5B"
+            "Folder" = "8:_48FA7CD78DC84A1BB6281AF491FCDACD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -384,32 +469,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69932D2DDE5B4D1AAFB165F1F941EC7F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83318B9EDD46406392A474FC0C4F2205"
             {
-            "SourcePath" = "8:..\\Mod\\data\\sandking\\darude.mp3"
+            "SourcePath" = "8:..\\DotaInstaller\\data\\sandking\\darude.mp3"
             "TargetName" = "8:darude.mp3"
             "Tag" = "8:"
             "Folder" = "8:_3B5ECB8CCAD745DAB9688671B2A9BC5B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_79878641A6F342B9BACF6737F2B944D9"
-            {
-            "SourcePath" = "8:..\\Mod\\data\\blink\\blink_nailed.vsnd_c"
-            "TargetName" = "8:blink_nailed.vsnd_c"
-            "Tag" = "8:"
-            "Folder" = "8:_D8353C1FF3814670A81251B14A12734C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -431,6 +496,11 @@
             "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_8485519F7B94397C5982EA11D778811F"
+                    {
+                    "Name" = "8:MaterialDesignColors.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:MaterialDesignColors.dll"
             "TargetName" = "8:"
@@ -450,9 +520,29 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9E4FE183E3D54ED2BCE9625F8E676924"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85562F7A81814E029930090AEBF9F538"
             {
-            "SourcePath" = "8:..\\Mod\\logo.ico"
+            "SourcePath" = "8:..\\DotaInstaller\\tier0_s.dll"
+            "TargetName" = "8:tier0_s.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F13A9B207E24445A2A883A6856446C8"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\logo.ico"
             "TargetName" = "8:logo.ico"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
@@ -470,30 +560,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ABA749F893A94A848257581D84E026AF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6266D3626B349898BAFFACE08F3FD68"
             {
-            "SourcePath" = "8:..\\Mod\\tier0.dll"
-            "TargetName" = "8:tier0.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B17CCF135CB9455289242FF06C5B5893"
-            {
-            "SourcePath" = "8:..\\Mod\\data\\runes\\runes.wav"
-            "TargetName" = "8:runes.wav"
+            "SourcePath" = "8:..\\DotaInstaller\\data\\runes\\rune_haste.vsnd_c"
+            "TargetName" = "8:rune_haste.vsnd_c"
             "Tag" = "8:"
             "Folder" = "8:_48FA7CD78DC84A1BB6281AF491FCDACD"
             "Condition" = "8:"
@@ -510,12 +580,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B90CDEF40BBE49CEAA1E9A12CAEF195C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C747C3891CD64FE7A1AA39B4EF8D3EDE"
             {
-            "SourcePath" = "8:..\\Mod\\filesystem_stdio.dll"
-            "TargetName" = "8:filesystem_stdio.dll"
+            "SourcePath" = "8:..\\DotaInstaller\\data\\blink\\blink_nailed.vsnd_c"
+            "TargetName" = "8:blink_nailed.vsnd_c"
             "Tag" = "8:"
-            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Folder" = "8:_D8353C1FF3814670A81251B14A12734C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -530,10 +600,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBD3705063C447EA92D234397F99A044"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DAECD6F21D3C48C9B4240BB597B351C8"
             {
-            "SourcePath" = "8:..\\Mod\\vstdlib.dll"
-            "TargetName" = "8:vstdlib.dll"
+            "SourcePath" = "8:..\\DotaInstaller\\vstdlib_s.dll"
+            "TargetName" = "8:vstdlib_s.dll"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
             "Condition" = "8:"
@@ -557,6 +627,11 @@
             "AssemblyAsmDisplayName" = "8:MaterialDesignThemes.Wpf, Version=2.4.0.1044, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_E02B339AA677E07C81F213BA7734478B"
+                    {
+                    "Name" = "8:MaterialDesignThemes.Wpf.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:MaterialDesignThemes.Wpf.dll"
             "TargetName" = "8:"
@@ -576,66 +651,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E124282ED3B04CE38270F6429E80450E"
-            {
-            "SourcePath" = "8:..\\Mod\\vpk.exe"
-            "TargetName" = "8:vpk.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E2DE200DA69044618137F544785D8176"
-            {
-            "SourcePath" = "8:..\\Mod\\data\\runes\\rune_haste.vsnd_c"
-            "TargetName" = "8:rune_haste.vsnd_c"
-            "Tag" = "8:"
-            "Folder" = "8:_48FA7CD78DC84A1BB6281AF491FCDACD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E647D8FF3A544441BD8CDFBE8C19A50A"
-            {
-            "SourcePath" = "8:..\\Mod\\data\\blink\\dbz.wav"
-            "TargetName" = "8:dbz.wav"
-            "Tag" = "8:"
-            "Folder" = "8:_D8353C1FF3814670A81251B14A12734C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F6CF1BA7511475643B1BA1CA9D69CB37"
             {
             "AssemblyRegister" = "3:1"
@@ -643,6 +658,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_F6CF1BA7511475643B1BA1CA9D69CB37"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -784,15 +804,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DotaInstaller"
-        "ProductCode" = "8:{BE588C8F-96CA-4FBF-AB71-52FA72A51459}"
-        "PackageCode" = "8:{24A606CD-E5A2-425E-B22A-DB6DEB73D18A}"
+        "ProductCode" = "8:{37B6B842-010C-4C18-9940-A6325A6F0EDE}"
+        "PackageCode" = "8:{E3E31211-8299-4CF1-89D9-3969FCA24784}"
         "UpgradeCode" = "8:{C29A1560-7510-4342-812B-DC13D8E9306C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.17"
+        "ProductVersion" = "8:1.0.18"
         "Manufacturer" = "8:DotaInstaller"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -905,23 +925,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3DBD675836E04EE3B40118EF0DF40E06"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2CD0D825AC014335AC5E17503E7B2951"
             {
-            "Name" = "8:DotaInstaller"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
-            "Folder" = "8:_469864CC6C6148EB96A9147CCF30F773"
-            "WorkingFolder" = "8:_9EA17085CE3243C391702B973C88185D"
-            "Icon" = "8:_9E4FE183E3D54ED2BCE9625F8E676924"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ADDB0BCEF4CB4C2FAB2222B2B0563FB5"
-            {
-            "Name" = "8:DotaInstaller"
+            "Name" = "8:Shortcut to Primary output from DotaInstaller (Active)"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -930,7 +936,21 @@
             "Target" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
             "Folder" = "8:_51C1153B6BC84F42A20CA70E5D2124B9"
             "WorkingFolder" = "8:_9EA17085CE3243C391702B973C88185D"
-            "Icon" = "8:_9E4FE183E3D54ED2BCE9625F8E676924"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_765142B18F9E42F18972B56EDC962C8A"
+            {
+            "Name" = "8:Shortcut to Primary output from DotaInstaller (Active)"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
+            "Folder" = "8:_469864CC6C6148EB96A9147CCF30F773"
+            "WorkingFolder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Icon" = "8:_8F13A9B207E24445A2A883A6856446C8"
             "Feature" = "8:"
             }
         }
@@ -1334,7 +1354,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9412AC84FD2846AD91DF2EB6EBA4374C"
             {
-            "SourcePath" = "8:..\\DotaInstaller\\obj\\Debug\\DotaInstaller.exe"
+            "SourcePath" = "8:..\\DotaInstaller\\obj\\Release\\DotaInstaller.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
