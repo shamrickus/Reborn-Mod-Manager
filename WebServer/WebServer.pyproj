@@ -11,7 +11,7 @@
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>WebServer</Name>
-    <RootNamespace>PythonApplication1</RootNamespace>
+    <RootNamespace>WebServer</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -24,9 +24,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="devServer.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="version.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
