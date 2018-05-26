@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ModListUI>
+  <ModName>CustomMod</ModName>
+  <Mod>
+    <DisplayName>DBZ Blink</DisplayName>
+    <Description>Instant Transmission sound replaces blink dagger</Description>
+    <SampleFile>data\blink\dbz.wav</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\items</Path>
+      <Name>blink_nailed.vsnd_c</Name>
+      <SourcePath>data\blink\blink_nailed.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+    <FileDescr>
+      <Path>sounds\weapons\hero\antimage</Path>
+      <Name>blink_out.vsnd_c</Name>
+      <SourcePath>data\blink\blink_nailed.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+  <Mod>
+    <DisplayName>Sonic Haste</DisplayName>
+    <Description>Replaces Haste rune with Sonic</Description>
+    <SampleFile>data\runes\runes.wav</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\items</Path>
+      <Name>rune_haste.vsnd_c</Name>
+      <SourcePath>data\runes\rune_haste.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+  <Mod>
+    <DisplayName>Darude Sandstorm</DisplayName>
+    <Description>Replaces sandstorm with darude</Description>
+    <SampleFile>data\sandking\darude.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\weapons\hero\sand_king</Path>
+      <Name>sand_king_sandstorm_loop.vsnd_c</Name>
+      <SourcePath>data\sandking\darude.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+  <Mod>
+    <DisplayName>Spirit Gun</DisplayName>
+    <Description>Yu Yu Hakusho gun replaces Finger of Death on Lion</Description>
+    <SampleFile>data\lion\spirit_gun.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\weapons\hero\lion</Path>
+      <Name>finger_of_death.vsnd_c</Name>
+      <SourcePath>data\lion\spirit_gun.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+</ModListUI>
