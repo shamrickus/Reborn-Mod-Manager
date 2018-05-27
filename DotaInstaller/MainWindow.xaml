@@ -18,7 +18,7 @@
     </Window.Resources>
     <Grid Margin="5 5 5 5">
         <ProgressBar Value="0" Name="progressBar" Visibility="Hidden"></ProgressBar>
-        <StackPanel Orientation="Vertical" CanVerticallyScroll="True" Name="primaryContent">
+        <StackPanel Orientation="Vertical" CanVerticallyScroll="True"  x:Name="primaryContent">
             <ToolBarTray VerticalAlignment="Top" Height="Auto" Margin="0 0 0 10">
                 <ToolBar>
                     <Button Click="CheckForUpdate" Content="Check For Updates" FontSize="12" />
@@ -48,8 +48,9 @@
                                     <TextBlock Margin="0 0 0 10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding DisplayName}" />
                                     <TextBlock Margin="0 0 0 10"  Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding Description}" />
                                     <DockPanel>
-                                        <CheckBox DockPanel.Dock="Left" Content="Include" HorizontalContentAlignment="Left" HorizontalAlignment="Left" IsChecked="{Binding Selected}" />
-                                        <Button DockPanel.Dock="Right" Tag="{Binding SampleFile}" HorizontalContentAlignment="Right" Content="Sample" Click="SampleClick" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                                        <CheckBox DockPanel.Dock="Left" Content="Include" HorizontalContentAlignment="Left" HorizontalAlignment="Left" IsChecked="{Binding Selected}" Checked="Checked" Unchecked="Checked"/>
+                                        <Button DockPanel.Dock="Right" Tag="{Binding SampleFile}" HorizontalContentAlignment="Right" Content="Play" Click="SampleClick" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding IsActive}" IsEnabled="{Binding NotPlaying}"/>
+                                        <Button DockPanel.Dock="Right" HorizontalContentAlignment="Right" Content="Stop" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Stop" Visibility="{Binding IsInActive}"/>
                                     </DockPanel>
                                 </StackPanel>
                             </materialDesign:Card>
@@ -58,6 +59,6 @@
                 </ItemsControl>
             </ScrollViewer>
         </StackPanel>
-        <Button Content="Install" IsEnabled="{Binding ModsSelected}" VerticalAlignment="Bottom" Panel.ZIndex="5" Click="Install" />
+        <Button Content="Install" IsEnabled="{Binding ElementName=primaryContent, Path=DataContext.ActiveMods.Count}" VerticalAlignment="Bottom" Panel.ZIndex="5" Click="Install" />
     </Grid>
 </Window>

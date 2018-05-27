@@ -13,7 +13,7 @@ namespace DotaInstaller
             {
                 string line;
                 List<string> fileData = new List<string>();
-                using (var file = File.Open($"{SteamLocation}{GAMEINFO}", FileMode.Open, FileAccess.Read))
+                using (var file = File.Open(Path.Combine(SteamLocation, GAMEINFO), FileMode.Open, FileAccess.Read))
                 {
                     var reader = new StreamReader(file);
                     var dotaLv = "\t\t\tGame_LowViolence\tdota_lv";
@@ -38,13 +38,13 @@ namespace DotaInstaller
 
         public static void CreateAndCopy(string SteamLocation, string pModName)
         {
-            Directory.CreateDirectory($@"{SteamLocation}\game\{pModName}");
-            File.Copy($@"{Directory.GetCurrentDirectory()}\{VpkCompiler.VPK_COMP}", $@"{SteamLocation}\game\{pModName}\{VpkCompiler.VPK_COMP}", true);
+            Directory.CreateDirectory(Path.Combine(SteamLocation, "game", pModName));
+            File.Copy(Path.Combine(Directory.GetCurrentDirectory(), VpkCompiler.VPK_COMP), Path.Combine(SteamLocation, "game", pModName, VpkCompiler.VPK_COMP), true);
         }
 
-        public static bool ConfigExists(string SteamLocation)
+        public static bool ConfigExists(string steamLocation)
         {
-            return File.Exists($"{SteamLocation}{GAMEINFO}");
+            return File.Exists($"{steamLocation}{GAMEINFO}");
         }
     }
 }

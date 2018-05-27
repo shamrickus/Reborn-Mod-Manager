@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using Button = System.Windows.Controls.Button;
 using MessageBox = System.Windows.MessageBox;
 
 namespace DotaInstaller
@@ -20,7 +21,6 @@ namespace DotaInstaller
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
-        public WaveOutEvent device = new WaveOutEvent();
 
         public string SelectedPath;
 
@@ -51,6 +51,12 @@ namespace DotaInstaller
 
             VpkCompiler.Create();
             Mods = ModConfiguration.Read();
+
+            AudioManager.PlaybackChanged += () =>
+            {
+               OnPropertyChanged(nameof(IsPlaying));
+               OnPropertyChanged(nameof(NotPlaying));
+            }; 
         }
 
 
@@ -64,7 +70,6 @@ namespace DotaInstaller
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool ModsSelected = false;
         private Updater _updater;
 
         public List<Mod> ActiveMods
@@ -74,7 +79,6 @@ namespace DotaInstaller
                 if (Mods == null)
                     return new List<Mod>();
                 var mods =  ListOfMods.Where(mod => mod.Selected).ToList();
-                ModsSelected = mods.Count > 0;
                 return mods;
             }
         }
@@ -180,28 +184,24 @@ namespace DotaInstaller
                 $"Note: Mods will need to be reinstalled after every update");
         }
 
+        private void Checked(object sender, RoutedEventArgs e)
+        {
+            OnPropertyChanged(nameof(ActiveMods));
+        }
+
         private void SampleClick(object sender, RoutedEventArgs e)
         {
-            var btn = sender as System.Windows.Controls.Button;
-            if (btn != null)
+            if (sender is Button btn)
             {
-                AudioFileReader audioFile = new AudioFileReader($@"{Directory.GetCurrentDirectory()}\{btn.Tag}");
-                if (device.PlaybackState != PlaybackState.Playing)
-                {
-                    device.Init(audioFile);
-                    try
-                    {
-                        device.Play();
-                    }
-                    catch (FileNotFoundException)
-                    {
-                        MessageBox.Show("Could not find sample file!");
-                    }
-                }
+                if(!AudioManager.PlayFile($@"{Directory.GetCurrentDirectory()}\{btn.Tag}"))
+                    MessageBox.Show("Could not find sample file!");
             }
         }
 
-        private void UpdateLocation()
+        public bool IsPlaying => !NotPlaying;
+        public bool NotPlaying => AudioManager.NotPlaying;
+
+        private  void UpdateLocation()
         {
             using (var dialog = new FolderBrowserDialog())
             {
@@ -214,7 +214,13 @@ namespace DotaInstaller
         }
         private void VolumnChange(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            device.Volume = Convert.ToSingle(e.NewValue / 100);
+            AudioManager.ChangeVolumn(Convert.ToSingle(e.NewValue / 100));
         }
+        private void Stop(object sender, EventArgs args)
+
+        {
+            AudioManager.Stop();
+        }
+
     }
 }

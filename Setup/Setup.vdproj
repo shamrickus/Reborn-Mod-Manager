@@ -15,14 +15,38 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_14998A2CEBFE42A4B5552360771C51D0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1D9B2AA647D843D664E771215619D7AD"
         "OwnerKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_1FA6E70EE64419ADBEFD84D9FF03895D"
+        "OwnerKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1FA6E70EE64419ADBEFD84D9FF03895D"
+        "OwnerKey" = "8:_7208377537FE751E14F6365A499ED3B4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_21548C3D37AA434E8AACC2D2EB9EBE68"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_21643C6643AE8F1F71B4C6F69C7DDAB0"
+        "OwnerKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -71,6 +95,18 @@
         {
         "MsmKey" = "8:_649B39AEC51A4F429C17D432563D774B"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7208377537FE751E14F6365A499ED3B4"
+        "OwnerKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_730963665BF586367290BCC934ECCBD8"
+        "OwnerKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -135,8 +171,38 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F6CF1BA7511475643B1BA1CA9D69CB37"
+        "OwnerKey" = "8:_1FA6E70EE64419ADBEFD84D9FF03895D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_21643C6643AE8F1F71B4C6F69C7DDAB0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7208377537FE751E14F6365A499ED3B4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1FA6E70EE64419ADBEFD84D9FF03895D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_730963665BF586367290BCC934ECCBD8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -258,6 +324,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_14998A2CEBFE42A4B5552360771C51D0"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\config.xml"
+            "TargetName" = "8:config.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1D9B2AA647D843D664E771215619D7AD"
             {
             "AssemblyRegister" = "3:1"
@@ -272,6 +358,37 @@
                     }
                 }
             "SourcePath" = "8:NAudio.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1FA6E70EE64419ADBEFD84D9FF03895D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Octokit, Version=0.29.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1FA6E70EE64419ADBEFD84D9FF03895D"
+                    {
+                    "Name" = "8:Octokit.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Octokit.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
@@ -307,6 +424,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_21643C6643AE8F1F71B4C6F69C7DDAB0"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Reactive, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_21643C6643AE8F1F71B4C6F69C7DDAB0"
+                    {
+                    "Name" = "8:System.Reactive.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Reactive.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_28AD043749C747AA84823EE5B7B67A6D"
@@ -467,6 +615,68 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7208377537FE751E14F6365A499ED3B4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Octokit.Reactive, Version=0.29.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_7208377537FE751E14F6365A499ED3B4"
+                    {
+                    "Name" = "8:Octokit.Reactive.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Octokit.Reactive.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_730963665BF586367290BCC934ECCBD8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_730963665BF586367290BCC934ECCBD8"
+                    {
+                    "Name" = "8:System.Windows.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Windows.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83318B9EDD46406392A474FC0C4F2205"
@@ -712,7 +922,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_9EA17085CE3243C391702B973C88185D"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder][ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -723,7 +933,7 @@
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_19469C10B92E4030B723AE086BCE26E4"
                     {
                     "Name" = "8:data"
-                    "AlwaysCreate" = "11:TRUE"
+                    "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_78645A75B09845AD9D96CFCDCC169D7A"
@@ -778,7 +988,7 @@
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_56B77B0B70EA4A3BA005B6169F1D8853"
                     {
                     "Name" = "8:pak01_dir"
-                    "AlwaysCreate" = "11:TRUE"
+                    "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_7FB48435685545E4B7D86B7E7A14F79C"
@@ -804,18 +1014,18 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DotaInstaller"
-        "ProductCode" = "8:{37B6B842-010C-4C18-9940-A6325A6F0EDE}"
-        "PackageCode" = "8:{E3E31211-8299-4CF1-89D9-3969FCA24784}"
+        "ProductCode" = "8:{EB3E4BC6-8238-49AE-B756-CEE9B8605436}"
+        "PackageCode" = "8:{6164269F-903D-454A-BE20-2698592CD9AD}"
         "UpgradeCode" = "8:{C29A1560-7510-4342-812B-DC13D8E9306C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.18"
+        "ProductVersion" = "8:1.0.23"
         "Manufacturer" = "8:DotaInstaller"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
+        "ARPHELPLINK" = "8:https://github.com/shamrickus/Reborn-Mod-Manager"
         "Title" = "8:DotaInstaller"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Crusherexe"
@@ -925,32 +1135,32 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2CD0D825AC014335AC5E17503E7B2951"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_18E0F9B9135445B6B677D2FE7424B362"
             {
-            "Name" = "8:Shortcut to Primary output from DotaInstaller (Active)"
+            "Name" = "8:DotaInstaller"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
+            "IconIndex" = "3:32512"
+            "Transitive" = "11:TRUE"
             "Target" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
             "Folder" = "8:_51C1153B6BC84F42A20CA70E5D2124B9"
             "WorkingFolder" = "8:_9EA17085CE3243C391702B973C88185D"
-            "Icon" = "8:"
+            "Icon" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_765142B18F9E42F18972B56EDC962C8A"
             {
-            "Name" = "8:Shortcut to Primary output from DotaInstaller (Active)"
+            "Name" = "8:DotaInstaller"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
             "Folder" = "8:_469864CC6C6148EB96A9147CCF30F773"
             "WorkingFolder" = "8:_9EA17085CE3243C391702B973C88185D"
-            "Icon" = "8:_8F13A9B207E24445A2A883A6856446C8"
+            "Icon" = "8:_9412AC84FD2846AD91DF2EB6EBA4374C"
             "Feature" = "8:"
             }
         }

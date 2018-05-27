@@ -99,6 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AudioManager.cs" />
     <Compile Include="Dota2Tome.cs" />
     <Compile Include="ModList.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -143,13 +144,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <None Include="data\blink\darude.vsnd_c" />
-    <None Include="data\blink\spirit_gun.vsnd_c" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="data\blink\blink_nailed.vsnd_c" />
-    <None Include="data\runes\rune_haste.vsnd_c" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,9 +176,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="data\blink\darude.mp3" />
-    <Content Include="data\blink\spirit_gun.mp3" />
-    <Content Include="data\runes.mp3" />
     <Content Include="filesystem_stdio.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
