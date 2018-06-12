@@ -1,19 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Security.Principal;
 using System.Windows;
 
-namespace DotaInstaller
+namespace DotaInstaller.src.Utilities
 {
     public static class Utilities
     {
-        public static Version BuildFromString(string pVersion)
-        {
-            var parts = pVersion.Split('.').ToList().Select(Int16.Parse).ToList();
-            return new Version(parts[0], parts[1], parts[2]);
-        }
-
         public static bool CheckForAdmin()
         {
             using (WindowsIdentity iden = WindowsIdentity.GetCurrent())

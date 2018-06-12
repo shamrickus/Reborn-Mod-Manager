@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using DotaInstaller.Annotations;
+﻿using System.Linq;
 using NAudio.Wave;
 
-namespace DotaInstaller
+namespace DotaInstaller.src.Utilities
 {
     public static class AudioManager
     {

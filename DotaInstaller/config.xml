@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ModListUI>
-  <ModName>CustomMod</ModName>
+<ModPack>
+  <Name>CustomMods</Name>
   <Mod>
     <DisplayName>DBZ Blink</DisplayName>
     <Description>Instant Transmission sound replaces blink dagger</Description>
@@ -45,14 +45,15 @@
     </FileDescr>
   </Mod>
   <Mod>
-    <DisplayName>Spirit Gun</DisplayName>
-    <Description>Yu Yu Hakusho gun replaces Finger of Death on Lion</Description>
-    <SampleFile>data\lion\spirit_gun.mp3</SampleFile>
+    <DisplayName>Hit Marker Last Hit</DisplayName>
+    <Description>For more visceral combat</Description>
+    <SampleFile>data\hit\lasthit.mp3</SampleFile>
+
     <FileDescr>
-      <Path>sounds\weapons\hero\lion</Path>
-      <Name>finger_of_death.vsnd_c</Name>
-      <SourcePath>data\lion\spirit_gun.vsnd_c</SourcePath>
+      <Path>sounds\ui</Path>
+      <Name>coins.vsnd_c</Name>
+      <SourcePath>data\hit\lasthit.vsnd_c</SourcePath>
       <Type>Sound</Type>
     </FileDescr>
   </Mod>
-</ModListUI>
+</ModPack>

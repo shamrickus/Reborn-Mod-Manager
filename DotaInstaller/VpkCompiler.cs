@@ -8,6 +8,11 @@ namespace DotaInstaller
         public const string VPK_DIR = "pak01_dir";
         public const string VPK_COMP = "pak01_dir.vpk";
 
+        static VpkCompiler()
+        {
+            Create();
+        }
+
         public static void Run()
         {
             System.Diagnostics.Process.Start(VPK_FILE, VPK_DIR);

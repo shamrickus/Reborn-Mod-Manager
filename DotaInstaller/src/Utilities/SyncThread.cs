@@ -1,24 +1,24 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace DotaInstaller
+namespace DotaInstaller.src.Utilities
 {
-    public class BGWorker
+    public class SyncThread
     {
         private BackgroundWorker w;
 
-        public BGWorker()
+        public SyncThread()
         {
             w = new BackgroundWorker();
         }
 
-        public BGWorker(Func<object> pFunc) : this()
+        public SyncThread(Func<object> pFunc) : this()
         {
             Register(pFunc);
             RunAsync();
         }
 
-        public BGWorker(Func<object> pFunc, Func<object> pComp) : this()
+        public SyncThread(Func<object> pFunc, Func<object> pComp) : this()
         {
             Register(pFunc);
             RunAfter(pComp);

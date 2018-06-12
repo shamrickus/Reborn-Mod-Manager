@@ -3,10 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows.Controls;
-using System.Xml.Serialization;
 using Octokit;
 
-namespace DotaInstaller
+namespace DotaInstaller.src.Utilities
 {
     public class Updater
     {
@@ -17,6 +16,17 @@ namespace DotaInstaller
         public Updater()
         {
             Client = new GitHubClient(new ProductHeaderValue(GIT_HEADER));
+        }
+
+        public void Run()
+        {
+            var worker = new SyncThread();
+            worker.Register(() =>
+            {
+                this.CheckForUpdate();
+                return null;
+            });
+            worker.RunAsync();
         }
 
         public Release CheckForUpdate()

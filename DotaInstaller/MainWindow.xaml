@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="clr-namespace:DotaInstaller.src.ModPack"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="8"
@@ -20,45 +21,16 @@
         <ProgressBar Value="0" Name="progressBar" Visibility="Hidden"></ProgressBar>
         <StackPanel Orientation="Vertical" CanVerticallyScroll="True"  x:Name="primaryContent">
             <ToolBarTray VerticalAlignment="Top" Height="Auto" Margin="0 0 0 10">
-                <ToolBar>
+                <ToolBar   ToolBarTray.IsLocked="True">
                     <Button Click="CheckForUpdate" Content="Check For Updates" FontSize="12" />
-                </ToolBar>
-            </ToolBarTray>
-            <materialDesign:Card Padding="32 16 32 16">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="0 0 5 10" FontSize="10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Path to Steam:" />
-                        <TextBlock Margin="0 0 0 10" FontSize="10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding SteamLocation}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button HorizontalAlignment="Left"  Width="100px" Click="Button_Click" Content="Locate" />
-                        <Label>
-                            <TextBlock Margin="100,0,0,0" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Sample Volume: " TextWrapping="Wrap"></TextBlock>
-                        </Label>
+                    <Button Click="Button_Click" Content="Locate Steam" FontSize="12" ToolTip="{Binding Location}" Foreground="{Binding LocationColor}" Name="steamLoc"/>
+                    <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Sample Volume: " VerticalAlignment="Center"></TextBlock>
                         <Slider AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="0" Orientation="Horizontal" Minimum="0" Maximum="100"  Value="50" ValueChanged="VolumnChange" Width="212" VerticalAlignment="Center" />
                     </StackPanel>
-                </StackPanel>
-            </materialDesign:Card>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="475">
-                <ItemsControl Name="items" UseLayoutRounding="False" Margin="0" Width="Auto" ItemsSource="{Binding ListOfMods}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <materialDesign:Card FontSize="36" Padding="16" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,5,0,0">
-                                <StackPanel Orientation="Vertical" MinWidth="700">
-                                    <TextBlock Margin="0 0 0 10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding DisplayName}" />
-                                    <TextBlock Margin="0 0 0 10"  Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding Description}" />
-                                    <DockPanel>
-                                        <CheckBox DockPanel.Dock="Left" Content="Include" HorizontalContentAlignment="Left" HorizontalAlignment="Left" IsChecked="{Binding Selected}" Checked="Checked" Unchecked="Checked"/>
-                                        <Button DockPanel.Dock="Right" Tag="{Binding SampleFile}" HorizontalContentAlignment="Right" Content="Play" Click="SampleClick" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding IsActive}" IsEnabled="{Binding NotPlaying}"/>
-                                        <Button DockPanel.Dock="Right" HorizontalContentAlignment="Right" Content="Stop" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Stop" Visibility="{Binding IsInActive}"/>
-                                    </DockPanel>
-                                </StackPanel>
-                            </materialDesign:Card>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
+                </ToolBar>
+            </ToolBarTray>
+            <controls:ModPackView Height="615"/>
         </StackPanel>
-        <Button Content="Install" IsEnabled="{Binding ElementName=primaryContent, Path=DataContext.ActiveMods.Count}" VerticalAlignment="Bottom" Panel.ZIndex="5" Click="Install" />
     </Grid>
 </Window>

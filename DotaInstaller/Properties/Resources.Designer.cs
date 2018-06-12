@@ -63,8 +63,8 @@ namespace DotaInstaller.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///
-        ///&lt;ModListUI&gt;
-        ///  &lt;ModName&gt;BB&lt;/ModName&gt;
+        ///&lt;ModPack&gt;
+        ///  &lt;Name&gt;BB&lt;/Name&gt;
         ///  &lt;Mod&gt;
         ///    &lt;DisplayName&gt;DBZ Blink&lt;/DisplayName&gt;
         ///    &lt;Description&gt;Instant Transmission sound replaces blink dagger&lt;/Description&gt;

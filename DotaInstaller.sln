@@ -9,8 +9,6 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Tools", "Tools\Tools.pyproj", "{D8D7A08B-DBC0-44FF-921E-4A054B2DA242}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WebServer", "WebServer\WebServer.pyproj", "{6897C46E-6BF8-4BF8-ABAE-6ACBD1EAF135}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,8 +23,6 @@ Global
 		{5BBACA74-9793-4EDB-8E2A-0933FC963FE6}.Release|Any CPU.ActiveCfg = Release
 		{D8D7A08B-DBC0-44FF-921E-4A054B2DA242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8D7A08B-DBC0-44FF-921E-4A054B2DA242}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6897C46E-6BF8-4BF8-ABAE-6ACBD1EAF135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6897C46E-6BF8-4BF8-ABAE-6ACBD1EAF135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
