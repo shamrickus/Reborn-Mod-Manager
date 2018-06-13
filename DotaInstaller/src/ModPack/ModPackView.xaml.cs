@@ -46,5 +46,13 @@ namespace DotaInstaller.src.ModPack
                 ViewModel.AddOrUpdate();
             }
         }
+
+        public void SelectAll(object sender, RoutedEventArgs e)
+        {
+            foreach (var mod in ViewModel.VMods)
+            {
+                mod.Selected = true;
+            }
+        }
     }
 }

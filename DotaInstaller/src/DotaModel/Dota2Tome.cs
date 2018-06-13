@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using Application = System.Windows.Application;
 
@@ -110,6 +111,12 @@ namespace DotaInstaller.src.Utilities
         public static void CreateAndCopy(string SteamLocation, string pName)
         {
             Directory.CreateDirectory(Path.Combine(SteamLocation, "game", pName));
+            var file = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), VpkCompiler.VPK_COMP));
+            while (file.Exists == false)
+            {
+                Thread.Sleep(100);
+                file.Refresh();
+            }
             File.Copy(Path.Combine(Directory.GetCurrentDirectory(), VpkCompiler.VPK_COMP), Path.Combine(SteamLocation, "game", pName, VpkCompiler.VPK_COMP), true);
         }
 

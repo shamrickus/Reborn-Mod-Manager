@@ -56,4 +56,60 @@
       <Type>Sound</Type>
     </FileDescr>
   </Mod>
+  <Mod>
+    <DisplayName>Wow</DisplayName>
+    <Description>Replace Phantom Assassin Coup de grace with Wow</Description>
+    <SampleFile>data\pa\Wow.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\weapons\hero\phantom_assassin</Path>
+      <Name>coup_de_grace.vsnd_c</Name>
+      <SourcePath>data\pa\wow.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+  <Mod>
+    <DisplayName>Allahu Akbar</DisplayName>
+    <Description>Replace Techies Suicide with Allahu Akbar</Description>
+    <SampleFile>data\techies\suicide.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\weapons\hero\techies</Path>
+      <Name>arc_suicide.vsnd_c</Name>
+      <SourcePath>data\techies\suicide.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+    <FileDescr>
+      <Path>sounds\weapons\hero\techies</Path>
+      <Name>suicide.vsnd_c</Name>
+      <SourcePath>data\techies\suicide.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+  <Mod>
+    <DisplayName>On All Levels</DisplayName>
+    <Description>Replaces Lycan Ult</Description>
+    <SampleFile>data\lycan\ss.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\weapons\hero\lycan</Path>
+      <Name>shape_shift.vsnd_c</Name>
+      <SourcePath>data\lycan\ss.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+<!--
+  <Mod>
+    <DisplayName></DisplayName>
+    <Description></Description>
+    <SampleFile></SampleFile>
+
+    <FileDescr>
+      <Path></Path>
+      <Name></Name>
+      <SourcePath></SourcePath>
+      <Type></Type>
+    </FileDescr>
+  </Mod>
+-->
 </ModPack>

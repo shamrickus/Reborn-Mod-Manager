@@ -10,6 +10,7 @@ namespace DotaInstaller
 
         static VpkCompiler()
         {
+            Clean();
             Create();
         }
 
@@ -26,10 +27,16 @@ namespace DotaInstaller
         public static void Clean()
         {
             var dir = new DirectoryInfo($@"{Directory.GetCurrentDirectory()}\{VPK_DIR}");
-            foreach (var file in dir.GetFiles())
-                file.Delete();
-            foreach (var directory in dir.GetDirectories())
-                directory.Delete(true);
+            if (dir.Exists)
+            {
+                foreach (var file in dir.GetFiles())
+                    file.Delete();
+                foreach (var directory in dir.GetDirectories())
+                    directory.Delete(true);
+            }
+            var vpk = new FileInfo($@"{Directory.GetCurrentDirectory()}\{VPK_COMP}");
+            if(vpk.Exists)
+                vpk.Delete();
         }
     }
 }

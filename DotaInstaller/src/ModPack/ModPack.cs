@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace DotaInstaller.src.ModPack
@@ -14,7 +15,7 @@ namespace DotaInstaller.src.ModPack
 
         public void Copy()
         {
-            foreach (var mod in Mods)
+            foreach (var mod in Mods.Where(mod => mod.Selected))
             {
                 mod.Copy();
             }

@@ -69,8 +69,6 @@ namespace DotaInstaller
 
         public ModPack Mods { get; set; }
 
-        public string EndPoint;
-
         public void CheckForUpdate(object sender, RoutedEventArgs e)
         {
             if (CheckForUpdates())
