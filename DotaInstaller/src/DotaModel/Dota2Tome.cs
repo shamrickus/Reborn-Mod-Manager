@@ -90,7 +90,7 @@ namespace DotaInstaller.src.Utilities
                 LocationChanged?.Invoke();
 
                 if (Error)
-                    MessageBox.Show("Required files are not able to be found in that location!");
+                    MessageBox.Show($"Could not find dota data at {SteamLocation}");
             }
         }
         public static bool Error { get; set; }
