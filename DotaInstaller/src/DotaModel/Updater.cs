@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using DotaInstaller.Utilities;
@@ -47,15 +48,14 @@ namespace DotaInstaller.DotaModel
                 var update = new UpdateDialog("Update", "Downloading...");
                 update.Show();
                 client.DownloadProgressChanged += (sender, args) => update.Update(args.ProgressPercentage);
-                var downloader = client.DownloadFileTaskAsync(file.BrowserDownloadUrl, DOWNLOAD_FILE);
-                await downloader.ContinueWith(t => update.Cancel());
+                var task =  client.DownloadFileTaskAsync(file.BrowserDownloadUrl, DOWNLOAD_FILE);
+
+                await task.ContinueWith(t =>
+                {
+                    System.Diagnostics.Process.Start($"{Directory.GetCurrentDirectory()}\\{DOWNLOAD_FILE}");
+                    Environment.Exit(0);
+                });
             }
-
-#if Release
-            System.Diagnostics.Process.Start($"{Directory.GetCurrentDirectory()}\\{DOWNLOAD_FILE}");
-
-            Environment.Exit(0);
-#endif
         }
     }
 }

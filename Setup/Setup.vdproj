@@ -1217,15 +1217,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DotaInstaller"
-        "ProductCode" = "8:{F54C1F6D-E2CD-4660-87A4-6367FA8657AD}"
-        "PackageCode" = "8:{5DC6C834-F8EC-4D2C-AA74-16A2EE1B8223}"
+        "ProductCode" = "8:{61510570-8815-47E7-A2C1-C76211E93C78}"
+        "PackageCode" = "8:{DEFCEDF6-85E2-4AAB-B7B5-00880FC69216}"
         "UpgradeCode" = "8:{C29A1560-7510-4342-812B-DC13D8E9306C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.7"
+        "ProductVersion" = "8:1.1.9"
         "Manufacturer" = "8:DotaInstaller"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/shamrickus/Reborn-Mod-Manager"
@@ -1767,7 +1767,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2CE65F2CC89644978AA23B905155347D"
             {
-            "SourcePath" = "8:..\\DotaInstaller\\obj\\Debug\\DotaInstaller.exe"
+            "SourcePath" = "8:..\\DotaInstaller\\obj\\Release\\DotaInstaller.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
