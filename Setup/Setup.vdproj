@@ -105,6 +105,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_67B94DD6691F4690B0C112052280DEC5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_69DC7C65002B4988A404F6157CCAA0D3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -112,6 +118,12 @@
         "Entry"
         {
         "MsmKey" = "8:_730963665BF586367290BCC934ECCBD8"
+        "OwnerKey" = "8:_2CE65F2CC89644978AA23B905155347D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_777FDA35B4C183DE0F3F51194623BA1E"
         "OwnerKey" = "8:_2CE65F2CC89644978AA23B905155347D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -136,6 +148,12 @@
         "Entry"
         {
         "MsmKey" = "8:_A12A752045B24F079C051F39C1261CDB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B6A60FC126D84406B7651EE183F2BA63"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -196,13 +214,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F6CF1BA7511475643B1BA1CA9D69CB37"
+        "OwnerKey" = "8:_2CE65F2CC89644978AA23B905155347D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2CE65F2CC89644978AA23B905155347D"
+        "OwnerKey" = "8:_777FDA35B4C183DE0F3F51194623BA1E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -233,6 +251,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_730963665BF586367290BCC934ECCBD8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F6CF1BA7511475643B1BA1CA9D69CB37"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -643,6 +667,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_67B94DD6691F4690B0C112052280DEC5"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\data\\lich\\nfl.mp3"
+            "TargetName" = "8:nfl.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_D75ED0D629A34F958636CA078850C094"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69DC7C65002B4988A404F6157CCAA0D3"
             {
             "SourcePath" = "8:..\\DotaInstaller\\data\\lycan\\ss.vsnd_c"
@@ -677,6 +721,37 @@
                     }
                 }
             "SourcePath" = "8:System.Windows.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_777FDA35B4C183DE0F3F51194623BA1E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Ookii.Dialogs.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c15020868fd6249, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_777FDA35B4C183DE0F3F51194623BA1E"
+                    {
+                    "Name" = "8:Ookii.Dialogs.Wpf.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Ookii.Dialogs.Wpf.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"
@@ -760,6 +835,26 @@
             "TargetName" = "8:suicide.vsnd_c"
             "Tag" = "8:"
             "Folder" = "8:_F1673E1321BD46658AE7C07036722160"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6A60FC126D84406B7651EE183F2BA63"
+            {
+            "SourcePath" = "8:..\\DotaInstaller\\data\\lich\\nfl.vsnd_c"
+            "TargetName" = "8:nfl.vsnd_c"
+            "Tag" = "8:"
+            "Folder" = "8:_D75ED0D629A34F958636CA078850C094"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1047,6 +1142,17 @@
                                 {
                                 }
                             }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_D75ED0D629A34F958636CA078850C094"
+                            {
+                            "Name" = "8:lich"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_975758DD187D4211854BF09D7B0A1380"
+                                "Folders"
+                                {
+                                }
+                            }
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_D8353C1FF3814670A81251B14A12734C"
                             {
                             "Name" = "8:blink"
@@ -1111,15 +1217,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DotaInstaller"
-        "ProductCode" = "8:{891ACD06-CC5E-452A-A6D4-18553F493C11}"
-        "PackageCode" = "8:{AC56F8D5-8047-41A4-8C5B-3C0F58D7A413}"
+        "ProductCode" = "8:{F54C1F6D-E2CD-4660-87A4-6367FA8657AD}"
+        "PackageCode" = "8:{5DC6C834-F8EC-4D2C-AA74-16A2EE1B8223}"
         "UpgradeCode" = "8:{C29A1560-7510-4342-812B-DC13D8E9306C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.6"
+        "ProductVersion" = "8:1.1.7"
         "Manufacturer" = "8:DotaInstaller"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/shamrickus/Reborn-Mod-Manager"
@@ -1128,7 +1234,7 @@
         "ARPCONTACT" = "8:Crusherexe"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPURLINFOABOUT" = "8:https://github.com/shamrickus"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
@@ -1661,7 +1767,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2CE65F2CC89644978AA23B905155347D"
             {
-            "SourcePath" = "8:..\\DotaInstaller\\obj\\Release\\DotaInstaller.exe"
+            "SourcePath" = "8:..\\DotaInstaller\\obj\\Debug\\DotaInstaller.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9EA17085CE3243C391702B973C88185D"

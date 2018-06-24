@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using DotaInstaller.Properties;
 
-namespace DotaInstaller.src
+namespace DotaInstaller
 {
     public abstract class Observable : INotifyPropertyChanged
     {

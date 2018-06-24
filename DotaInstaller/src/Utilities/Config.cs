@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Linq;
 
-namespace DotaInstaller.src.Utilities
+namespace DotaInstaller.Utilities
 {
     public static class Config
     {

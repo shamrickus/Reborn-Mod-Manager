@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Security.Principal;
-using System.Windows;
 
-namespace DotaInstaller.src.Utilities
+namespace DotaInstaller.Utilities
 {
     public static class Utilities
     {
@@ -31,7 +30,7 @@ namespace DotaInstaller.src.Utilities
                     throw new Exception(excp.Message);
 #endif
 #pragma warning disable CS0162 // Unreachable code detected
-                    MessageBox.Show($"An exception has occurred!{Environment.NewLine}Exception: {excp.Message}");
+                    Dialog.ShowInfo("Info", $"An exception has occurred!{Environment.NewLine}Exception: {excp.Message}");
 #pragma warning restore CS0162 // Unreachable code detected
                 }
             };

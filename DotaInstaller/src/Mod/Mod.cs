@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace DotaInstaller.src.Mod
+namespace DotaInstaller.Mod
 {
     public class Mod
     {

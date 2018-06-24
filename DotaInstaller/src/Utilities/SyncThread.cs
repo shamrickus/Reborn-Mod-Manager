@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace DotaInstaller.src.Utilities
+namespace DotaInstaller.Utilities
 {
     public class SyncThread
     {

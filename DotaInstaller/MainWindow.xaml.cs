@@ -4,13 +4,12 @@ using System.Configuration;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows;
+using DotaInstaller.DotaModel;
 using DotaInstaller.Properties;
-using DotaInstaller.src.ModPack;
-using DotaInstaller.src.Services;
-using DotaInstaller.src.Utilities;
+using DotaInstaller.Providers;
+using DotaInstaller.Utilities;
 using Brush = System.Windows.Media.Brush;
 using Brushes = System.Windows.Media.Brushes;
-using MessageBox = System.Windows.MessageBox;
 
 namespace DotaInstaller
 {
@@ -26,14 +25,15 @@ namespace DotaInstaller
 
         public MainWindow()
         {
-            Utilities.RegisterException();
-            if (!Utilities.CheckForAdmin())
+            Utilities.Utilities.RegisterException();
+            if (!Utilities.Utilities.CheckForAdmin())
             {
-                MessageBox.Show("Please run the DotaInstaller as admin!");
+                Dialog.ShowInfo("Info", "Please run the DotaInstaller as admin!");
                 Environment.Exit(1);
             }
 
             _updater = new Updater();
+            CheckForUpdates();
             ResizeMode = ResizeMode.NoResize;
 
             DataContext = this;
@@ -44,10 +44,8 @@ namespace DotaInstaller
                 OnPropertyChanged(nameof(LocationColor));
                 OnPropertyChanged(nameof(Location));
             };
-            Dota2Tome.SteamLocation = ConfigurationManager.AppSettings[nameof(Dota2Tome.SteamLocation)];
             d2.Title += " V" + ConfigurationManager.AppSettings[nameof(CurrentVersion)];
 
-            _updater.Run();
             BringToFront();
         }
 
@@ -67,12 +65,12 @@ namespace DotaInstaller
 
         private Updater _updater;
 
-        public ModPack Mods { get; set; }
+        public ModPack.ModPack Mods { get; set; }
 
         public void CheckForUpdate(object sender, RoutedEventArgs e)
         {
             if (CheckForUpdates())
-                MessageBox.Show("No new updates found.", "Update Check");
+                Dialog.ShowInfo("Update Check", "No new updates found.");
         }
 
         public bool CheckForUpdates()
@@ -81,12 +79,9 @@ namespace DotaInstaller
             CurrentVersion = VersionManager.BuildFromString(ConfigurationManager.AppSettings["CurrentVersion"]);
             if (version != null && CurrentVersion != null && VersionManager.BuildFromString(version.TagName) > CurrentVersion)
             {
-                if (MessageBox.Show($"Update {version.TagName} found, would you like to update?", "Update?",
-                        MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if(Dialog.YesNoBox("Update?", _updater.GetChangeLog(version)) == Dialog.Button.Yes)
                 {
-                    primaryContent.Visibility = Visibility.Hidden;
-                    progressBar.Visibility = Visibility.Visible;
-                    _updater.Update(progressBar, version);
+                    _updater.Update(version);
                 }
 
                 return false;

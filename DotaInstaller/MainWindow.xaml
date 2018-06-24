@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:controls="clr-namespace:DotaInstaller.src.ModPack"
+        xmlns:controls="clr-namespace:DotaInstaller.ModPack"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="8"
@@ -18,12 +18,11 @@
     <Window.Resources>
     </Window.Resources>
     <Grid Margin="5 5 5 5">
-        <ProgressBar Value="0" Name="progressBar" Visibility="Hidden"></ProgressBar>
         <StackPanel Orientation="Vertical" CanVerticallyScroll="True"  x:Name="primaryContent">
             <ToolBarTray VerticalAlignment="Top" Height="Auto" Margin="0 0 0 10">
                 <ToolBar   ToolBarTray.IsLocked="True">
                     <Button Click="CheckForUpdate" Content="Check For Updates" FontSize="12" />
-                    <Button Click="Button_Click" Content="Locate Steam" FontSize="12" ToolTip="{Binding Location}" Foreground="{Binding LocationColor}" Name="steamLoc"/>
+                    <Button Click="Button_Click" Content="Locate Dota 2" FontSize="12" ToolTip="{Binding Location}" Foreground="{Binding LocationColor}" Name="steamLoc"/>
                     <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
                         <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Sample Volume: " VerticalAlignment="Center"></TextBlock>
                         <Slider AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="0" Orientation="Horizontal" Minimum="0" Maximum="100"  Value="50" ValueChanged="VolumnChange" Width="212" VerticalAlignment="Center" />

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using DotaInstaller.src.Utilities;
+using DotaInstaller.Providers;
 
-namespace DotaInstaller.src.Mod
+namespace DotaInstaller.Mod
 {
     /// <summary>
     /// Interaction logic for ModView.xaml

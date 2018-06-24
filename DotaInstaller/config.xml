@@ -98,6 +98,18 @@
       <Type>Sound</Type>
     </FileDescr>
   </Mod>
+  <Mod>
+    <DisplayName>NFL Theme</DisplayName>
+    <Description>Replace Lich Chain Frost loop sound with theme</Description>
+    <SampleFile>data\lich\nfl.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds\weapons\hero\lich</Path>
+      <Name>chain_frost_cast.vsnd_c</Name>
+      <SourcePath>data\lich\nfl.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
 <!--
   <Mod>
     <DisplayName></DisplayName>

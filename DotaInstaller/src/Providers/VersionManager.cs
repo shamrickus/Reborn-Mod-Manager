@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace DotaInstaller.src.Services
+namespace DotaInstaller.Providers
 {
     public static class VersionManager
     {

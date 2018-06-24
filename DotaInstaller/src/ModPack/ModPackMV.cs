@@ -3,11 +3,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
+using DotaInstaller.DotaModel;
+using DotaInstaller.Mod;
 using DotaInstaller.Properties;
-using DotaInstaller.src.Mod;
-using DotaInstaller.src.Utilities;
 
-namespace DotaInstaller.src.ModPack
+namespace DotaInstaller.ModPack
 {
     public class ModPackMV : Observable
     {
@@ -19,7 +19,7 @@ namespace DotaInstaller.src.ModPack
             set
             {
                 _modPack = value;
-                OnPropertyChanged(nameof(src.ModPack));
+                OnPropertyChanged(nameof(ModPack));
             }
         }
 

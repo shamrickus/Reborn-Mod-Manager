@@ -1,11 +1,10 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Windows.Controls;
+using DotaInstaller.Utilities;
 using Octokit;
 
-namespace DotaInstaller.src.Utilities
+namespace DotaInstaller.DotaModel
 {
     public class Updater
     {
@@ -18,23 +17,12 @@ namespace DotaInstaller.src.Utilities
             Client = new GitHubClient(new ProductHeaderValue(GIT_HEADER));
         }
 
-        public void Run()
-        {
-            var worker = new SyncThread();
-            worker.Register(() =>
-            {
-                this.CheckForUpdate();
-                return null;
-            });
-            worker.RunAsync();
-        }
-
         public Release CheckForUpdate()
         {
             try
             {
-                var release = Client.Repository.Release.GetAll("shamrickus", "Reborn-Mod-Manager");
-                return release.Result[0];
+                var release = Client.Repository.Release.GetLatest("shamrickus", "Reborn-Mod-Manager");
+                return release.Result;
             }
             catch
             {
@@ -42,16 +30,32 @@ namespace DotaInstaller.src.Utilities
             }
         }
 
-        public async void Update(ProgressBar pProgressBar, Release version)
+        public string GetChangeLog(Release pRelease)
+        {
+            return
+                $"Version {pRelease.TagName} found{Environment.NewLine}{Environment.NewLine}" +
+                $"Changes:{Environment.NewLine}" +
+                $"{pRelease.Body}{Environment.NewLine}{Environment.NewLine}" +
+                $"Would you like to update?";
+        }
+
+        public async void Update(Release version)
         {
             var file = version.Assets.First(asset => asset.Name == "Setup.msi");
-            var client = new WebClient();
-            client.DownloadProgressChanged += (pSender, pArgs) => pProgressBar.Value = pArgs.ProgressPercentage;
-            await client.DownloadFileTaskAsync(file.BrowserDownloadUrl, DOWNLOAD_FILE);
+            using (var client = new WebClient())
+            {
+                var update = new UpdateDialog("Update", "Downloading...");
+                update.Show();
+                client.DownloadProgressChanged += (sender, args) => update.Update(args.ProgressPercentage);
+                var downloader = client.DownloadFileTaskAsync(file.BrowserDownloadUrl, DOWNLOAD_FILE);
+                await downloader.ContinueWith(t => update.Cancel());
+            }
 
+#if Release
             System.Diagnostics.Process.Start($"{Directory.GetCurrentDirectory()}\\{DOWNLOAD_FILE}");
 
             Environment.Exit(0);
+#endif
         }
     }
 }

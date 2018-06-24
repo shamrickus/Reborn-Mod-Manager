@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using NAudio.Wave;
 
-namespace DotaInstaller.src.Utilities
+namespace DotaInstaller.Providers
 {
     public static class AudioManager
     {

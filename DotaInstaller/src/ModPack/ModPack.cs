@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace DotaInstaller.src.ModPack
+namespace DotaInstaller.ModPack
 {
     [XmlRoot("ModPack")]
     public class ModPack

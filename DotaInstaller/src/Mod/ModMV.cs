@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Windows;
-using DotaInstaller.src.Utilities;
+using DotaInstaller.Providers;
 
-namespace DotaInstaller.src.Mod
+namespace DotaInstaller.Mod
 {
     public sealed class ModMV : Observable
     {

@@ -2,19 +2,25 @@
 using System.Configuration;
 using System.IO;
 using System.Threading;
-using System.Windows.Forms;
-using Application = System.Windows.Application;
+using DotaInstaller.Utilities;
 
-namespace DotaInstaller.src.Utilities
+namespace DotaInstaller.DotaModel
 {
     internal static class Dota2Tome
     {
         public delegate void OnLocationChanged();
         public static event OnLocationChanged LocationChanged;
 
+        static Dota2Tome()
+        {
+            SteamLocation = ConfigurationManager.AppSettings[nameof(SteamLocation)];
+            if(Error)
+                TryFindSteam();
+        }
+
         public static string GAMEINFO = @"\game\dota\gameinfo.gi";
 
-        public static void ReadFile(string SteamLocation, string pName)
+        public static void ReadFile(string pName)
         {
             new SyncThread(() =>
             {
@@ -62,7 +68,7 @@ namespace DotaInstaller.src.Utilities
         public static bool Install(ModPack.ModPack pContainer)
         {
             VpkCompiler.Clean();
-            ReadFile(SteamLocation, pContainer.Name);
+            ReadFile(pContainer.Name);
 
             pContainer.Copy();
             VpkCompiler.Run();
@@ -74,12 +80,7 @@ namespace DotaInstaller.src.Utilities
         private static string _steamLocation;
         public static  string SteamLocation
         {
-            get
-            {
-                if (string.IsNullOrEmpty(_steamLocation))
-                    SteamLocation = ConfigurationManager.AppSettings[nameof(SteamLocation)];
-                return _steamLocation;
-            }
+            get => _steamLocation;
             set
             {
                 _steamLocation = value;
@@ -88,22 +89,27 @@ namespace DotaInstaller.src.Utilities
 #endif
                 Error = !ConfigExists();
                 LocationChanged?.Invoke();
-
-                if (Error)
-                    MessageBox.Show($"Could not find dota data at {SteamLocation}");
             }
         }
         public static bool Error { get; set; }
 
         public static void UpdateLocation()
         {
-            using (var dialog = new FolderBrowserDialog())
+            SteamLocation = Dialog.FolderBrowser("Dota 2 location (steam/steamapps/common)", SteamLocation);
+        }
+
+        public static void TryFindSteam()
+        {
+            if (!DotaLocator.Checked)
             {
-                dialog.Description = "Where is your Dota 2 folder located?";
-                dialog.SelectedPath = SteamLocation;
-                var result = dialog.ShowDialog(Application.Current.MainWindow.GetIWin32Window());
-                if (result == DialogResult.OK || result == DialogResult.Yes)
-                    SteamLocation = dialog.SelectedPath;
+                DotaLocator.Checked = true;
+                var steamPath = DotaLocator.LocateSteam();
+                if (steamPath != null)
+                {
+                    var dotaPath = DotaLocator.LocateDota(steamPath);
+                    if (dotaPath != null)
+                        SteamLocation = dotaPath;
+                }
             }
         }
 

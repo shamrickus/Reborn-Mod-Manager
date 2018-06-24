@@ -2,9 +2,10 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using DotaInstaller.src.Mod;
+using DotaInstaller.Mod;
+using DotaInstaller.Utilities;
 
-namespace DotaInstaller.src.ModPack
+namespace DotaInstaller.ModPack
 {
     /// <summary>
     /// Interaction logic for ModPackView.xaml
@@ -28,12 +29,12 @@ namespace DotaInstaller.src.ModPack
         {
             if (ViewModel.Error)
             {
-                MessageBox.Show("Cant install, Dota 2 directory is invalid");
+                Dialog.ShowInfo("Info", "Can't install mods, Dota 2 directory is invalid");
                 return;
             }
 
             ViewModel.Install();
-            MessageBox.Show(
+            Dialog.ShowInfo("Success",
                 $"Mods installed successfully!{Environment.NewLine}" +
                 $"Start Dota 2 to start using them{Environment.NewLine}" +
                 $"Note: Mods will need to be reinstalled after every update");
