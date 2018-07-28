@@ -99,14 +99,26 @@
     </FileDescr>
   </Mod>
   <Mod>
-    <DisplayName>NFL Theme</DisplayName>
-    <Description>Replace Lich Chain Frost loop sound with theme</Description>
-    <SampleFile>data\lich\nfl.mp3</SampleFile>
+    <DisplayName>Intervention Sniper</DisplayName>
+    <Description>Replace sniper ult sound</Description>
+    <SampleFile>data\sniper\inter.mp3</SampleFile>
 
     <FileDescr>
-      <Path>sounds\weapons\hero\lich</Path>
-      <Name>chain_frost_cast.vsnd_c</Name>
-      <SourcePath>data\lich\nfl.vsnd_c</SourcePath>
+      <Path>sounds\weapons\hero\sniper</Path>
+      <Name>assasinate_projectile.vsnd_c</Name>
+      <SourcePath>data\sniper\assasinate_projectile.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+  <Mod>
+    <DisplayName>Reincarnate Illuminati</DisplayName>
+    <Description>Replace Wraith King ult with Illuminati</Description>
+    <SampleFile>data\wk\illum.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds/weapons/hero/skeleton_king</Path>
+      <Name>reincarnate.vsnd_c</Name>
+      <SourcePath>data\wk\illum.vsnd_c</SourcePath>
       <Type>Sound</Type>
     </FileDescr>
   </Mod>

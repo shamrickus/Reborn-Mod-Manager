@@ -35,7 +35,11 @@ namespace DotaInstaller.ModPack
         public ModPackMV()
         {
             ModContainer = ModConfiguration.Read();
-            Dota2Tome.LocationChanged += () => OnPropertyChanged(nameof(Enabled));
+            Dota2Tome.LocationChanged += () =>
+            {
+                OnPropertyChanged(nameof(Enabled));
+                OnPropertyChanged(nameof(InstallText));
+            };
         }
 
         public List<Mod.Mod> ActiveMods => Mods.Where(mod => mod.Selected).ToList();
@@ -44,12 +48,15 @@ namespace DotaInstaller.ModPack
         public void AddOrUpdate()
         {
             OnPropertyChanged(nameof(Enabled));
+            OnPropertyChanged(nameof(InstallText));
         }
 
         public void Install()
         {
             Dota2Tome.Install(ModContainer);
         }
+
+        public string InstallText => $"Install" + (ActiveMods.Any() ? $" ({ActiveMods.Count})" : "");
 
         public bool Enabled => ActiveMods.Any() && !Dota2Tome.Error;
     }

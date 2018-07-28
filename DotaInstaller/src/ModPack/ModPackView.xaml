@@ -19,7 +19,7 @@
       </ItemsControl>
     </ScrollViewer>
     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Panel.ZIndex="5">
-        <Button Content="Install" Width="655px" Height="40" IsEnabled="{Binding Enabled}"  Panel.ZIndex="5" Click="Install" />
+        <Button Content="{Binding InstallText}" Width="655px" Height="40" IsEnabled="{Binding Enabled}"  Panel.ZIndex="5" Click="Install" />
         <Button Content="Select All" Click="SelectAll" Height="40" Margin="7 0 0 0" />
     </StackPanel>
   </Grid>
