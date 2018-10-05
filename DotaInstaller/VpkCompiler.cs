@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 
 namespace DotaInstaller
 {
@@ -16,7 +17,10 @@ namespace DotaInstaller
 
         public static void Run()
         {
-            System.Diagnostics.Process.Start(VPK_FILE, VPK_DIR);
+            var info = new ProcessStartInfo(VPK_FILE);
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.Arguments = VPK_DIR;
+            Process.Start(info);
         }
 
         public static void Create()
