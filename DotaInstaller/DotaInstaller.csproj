@@ -99,7 +99,6 @@
     <Compile Include="src\Mod\ModView.xaml.cs">
       <DependentUpon>ModView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Providers\AdminManager.cs" />
     <Compile Include="src\Providers\AudioManager.cs" />
     <Compile Include="src\DotaModel\Dota2Tome.cs" />
     <Compile Include="src\Mod\FileDescr.cs" />
