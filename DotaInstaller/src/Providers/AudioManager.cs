@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NAudio.Wave;
 
 namespace DotaInstaller.Providers
@@ -7,24 +8,27 @@ namespace DotaInstaller.Providers
     {
         private static WaveOutEvent _device = new WaveOutEvent();
         private static AudioFileReader _file;
-        public static bool NotPlaying => _device.PlaybackState != PlaybackState.Playing;
+        private static TimeSpan _duration = TimeSpan.Zero;
+        public static bool CurrentlyPlaying => _device.PlaybackState == PlaybackState.Playing;
 
         static AudioManager()
         {
             _device.PlaybackStopped += (sender, args) =>
             {
                 PlaybackChanged?.Invoke();
+                _duration = TimeSpan.Zero;
             };
         }
 
         public static bool PlayFile(string pFile)
         {
             _file = new AudioFileReader(pFile);
-            if (NotPlaying)
+            if (!CurrentlyPlaying)
             {
-                _device.Init(_file);
                 try
                 {
+                    _duration = _file.TotalTime;
+                    _device.Init(_file);
                     _device.Play();
                     PlaybackChanged?.Invoke();
                     return true;
@@ -36,6 +40,11 @@ namespace DotaInstaller.Providers
             }
 
             return true;
+        }
+
+        public static double GetLengthInSeconds()
+        {
+            return _duration.TotalSeconds;
         }
 
         public static void ChangeVolumn(float pValue)
@@ -55,7 +64,7 @@ namespace DotaInstaller.Providers
 
         public static void Stop()
         {
-            if(!NotPlaying)
+            if(CurrentlyPlaying)
                 _device.Stop();
         }
     }

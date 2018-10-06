@@ -14,12 +14,9 @@
                 <DockPanel>
                     <CheckBox DockPanel.Dock="Left" Content="Include" HorizontalContentAlignment="Left"
                               HorizontalAlignment="Left" IsChecked="{Binding Selected}" />
-                    <Button DockPanel.Dock="Right" HorizontalContentAlignment="Right"
-                            Content="Play" Click="SampleClick" VerticalAlignment="Center" HorizontalAlignment="Right"
-                            Visibility="{Binding CanPlay}" IsEnabled="{Binding NotPlaying}" />
-                    <Button DockPanel.Dock="Right" HorizontalContentAlignment="Right" Content="Stop"
-                            VerticalAlignment="Center" HorizontalAlignment="Right" Click="Stop"
-                            Visibility="{Binding CanStop}" />
+                    <Button DockPanel.Dock="Right" HorizontalContentAlignment="Center" Content="{Binding StopPlayText}"
+                            VerticalAlignment="Center" HorizontalAlignment="Right" Click="Toggle" Width="150px"
+                            IsEnabled="{Binding IsEnabled}"/>
                 </DockPanel>
             </StackPanel>
         </materialDesign:Card>

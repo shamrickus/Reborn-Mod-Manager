@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
+using System.Windows.Threading;
 using DotaInstaller.Providers;
 
 namespace DotaInstaller.Mod
@@ -23,10 +25,9 @@ namespace DotaInstaller.Mod
         {
             AudioManager.PlaybackChanged += () =>
             {
-                OnPropertyChanged(nameof(NotPlaying));
-                OnPropertyChanged(nameof(CanPlay));
-                OnPropertyChanged(nameof(CanStop));
+                OnPropertyChanged(nameof(IsEnabled));
                 OnPropertyChanged(nameof(SampleFile));
+                OnPropertyChanged(nameof(StopPlayText));
             };
         }
 
@@ -48,34 +49,75 @@ namespace DotaInstaller.Mod
             Mod = pMV;
         }
 
-        public Visibility CanPlay
+        private DispatcherTimer _timer;
+        private double _timeLeft;
+
+        public string StopPlayText
         {
             get
             {
-                if (!AudioManager.NotPlaying && AudioManager.PlayingFile(SampleFile))
-                    return Visibility.Collapsed;
-                return Visibility.Visible;
+                if (IsPlaying())
+                    return $"Stop {_timeLeft.ToString("0.0")}s";
+                else
+                    return "Play";
             }
         }
-        public Visibility CanStop
+
+        public bool IsEnabled
         {
             get
             {
-                if (AudioManager.NotPlaying || !AudioManager.PlayingFile(SampleFile))
-                    return Visibility.Collapsed;
-                return Visibility.Visible;
+                if (IsPlaying())
+                    return true;
+                else if (AudioManager.CurrentlyPlaying)
+                    return false;
+                else return true;
             }
         }
 
-
-        public bool NotPlaying
+        private bool PlayFile()
         {
-            get { return AudioManager.NotPlaying; }
+            _timer = new DispatcherTimer(DispatcherPriority.Send);
+            DateTime time = DateTime.Now;
+            _timer.Tick += (o, e) =>
+            {
+                var now = DateTime.Now;
+                _timeLeft -= (now - time).TotalSeconds;
+                time = now;
+                if (_timeLeft <= 0)
+                    StopPlaying();
+                OnPropertyChanged(nameof(StopPlayText));
+            };
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            bool play = AudioManager.PlayFile($@"{Directory.GetCurrentDirectory()}\{SampleFile}");
+            if (play)
+            {
+                _timeLeft = AudioManager.GetLengthInSeconds();
+                _timer.Start();
+            }
+            else _timeLeft = 0;
+            return play;
         }
 
-        public bool PlayFile()
+        private void StopPlaying()
         {
-            return AudioManager.PlayFile($@"{Directory.GetCurrentDirectory()}\{SampleFile}");
+            _timeLeft = 0;
+            _timer.Stop();
+            AudioManager.Stop();
+        }
+
+        public bool IsPlaying()
+        {
+            return AudioManager.CurrentlyPlaying && AudioManager.PlayingFile(Mod.SampleFile);
+        }
+
+
+        public void Toggle()
+        {
+            if (IsPlaying())
+                StopPlaying();
+            else if (!AudioManager.CurrentlyPlaying)
+                PlayFile();
         }
     }
 }

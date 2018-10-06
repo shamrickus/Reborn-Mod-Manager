@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using DotaInstaller.Providers;
@@ -44,14 +45,13 @@ namespace DotaInstaller.Mod
 
         private void SampleClick(object sender, RoutedEventArgs e)
         {
-            if(!ViewModel.PlayFile())
-                MessageBox.Show("Could not find sample file!");
+            ViewModel.Toggle();
         }
 
-        private void Stop(object sender, EventArgs args)
 
+        private void Toggle(object sender, EventArgs args)
         {
-            AudioManager.Stop();
+            ViewModel.Toggle();
         }
     }
 }
