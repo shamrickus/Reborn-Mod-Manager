@@ -122,6 +122,54 @@
       <Type>Sound</Type>
     </FileDescr>
   </Mod>
+  <Mod>
+    <DisplayName>Spirit Breaker - Running in the 90s</DisplayName>
+    <Description>Replaces charge with Running in the 90s</Description>
+    <SampleFile>data\sb\running.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds/weapons/hero/spirit_breaker</Path>
+      <Name>charge_cast.vsnd_c</Name>
+      <SourcePath>data\sb\running.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+  <Mod>
+    <DisplayName>Airhorn for starting horn</DisplayName>
+    <Description>Replaces starting horn with airhorn</Description>
+    <SampleFile>data\ambient\airhorn.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds/ambient</Path>
+      <Name>horn_radiant.vsnd_c</Name>
+      <SourcePath>data\ambient\airhorn.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+    <FileDescr>
+      <Path>sounds/ambient</Path>
+      <Name>horn_dire.vsnd_c</Name>
+      <SourcePath>data\ambient\airhorn.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
+    <Mod>
+    <DisplayName>Za Warudo for Chrono Sphere</DisplayName>
+    <Description>Replaces Faceless Void's Ultimate</Description>
+    <SampleFile>data\fv\warudo.mp3</SampleFile>
+
+    <FileDescr>
+      <Path>sounds/weapons/hero/faceless_void</Path>
+      <Name>chronosphere_immortal.vsnd_c</Name>
+      <SourcePath>data\fv\warudo.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+    <FileDescr>
+      <Path>sounds/weapons/hero/faceless_void</Path>
+      <Name>chronosphere.vsnd_c</Name>
+      <SourcePath>data\fv\warudo.vsnd_c</SourcePath>
+      <Type>Sound</Type>
+    </FileDescr>
+  </Mod>
 <!--
   <Mod>
     <DisplayName></DisplayName>
