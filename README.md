@@ -2,7 +2,7 @@
 
 ## Prereqs
 * .NET framework 4.6.1
-* Windows 10
+* Windows 10 (Windows 7/8 may be possible, but these have not been tested. If you would like to use these, feel free to open an [Issue!](https://github.com/shamrickus/Reborn-Mod-Manager/issues)
 * Dota 2
 
 ## Installation/Usage
