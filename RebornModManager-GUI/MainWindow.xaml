@@ -1,0 +1,36 @@
+﻿<Window x:Class="RebornModManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="clr-namespace:RebornModManager.ModelViews"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="8"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Icon="./logo.ico"
+        Title="Reborn Mod Manager" Height="720" Width="780"
+        x:Name="d2">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid Margin="5 5 5 5">
+        <StackPanel Orientation="Vertical" CanVerticallyScroll="True"  x:Name="primaryContent">
+            <ToolBarTray VerticalAlignment="Top" Height="Auto" Margin="0 0 0 10">
+                <ToolBar   ToolBarTray.IsLocked="True">
+                    <Button Click="CheckForUpdate" Content="Check For Updates" FontSize="12" />
+                    <Button Click="Button_Click" Content="Locate Dota 2" FontSize="12" ToolTip="{Binding Location}" Foreground="{Binding LocationColor}" Name="steamLoc"/>
+                    <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Sample Volume: " VerticalAlignment="Center" FontSize="18"></TextBlock>
+                        <Slider AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="0" Orientation="Horizontal" Minimum="0" Maximum="100"  Value="50" ValueChanged="VolumnChange" Width="212" VerticalAlignment="Center" />
+                    </StackPanel>
+                </ToolBar>
+            </ToolBarTray>
+            <controls:ModPackView Height="615"/>
+        </StackPanel>
+    </Grid>
+</Window>
