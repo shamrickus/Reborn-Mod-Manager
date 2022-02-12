@@ -13,7 +13,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Icon="./logo.ico"
+        Icon="/logo.ico"
         Title="Reborn Mod Manager" Height="720" Width="780"
         x:Name="d2">
     <Window.Resources>
@@ -23,11 +23,12 @@
             <ToolBarTray VerticalAlignment="Top" Height="Auto" Margin="0 0 0 10">
                 <ToolBar   ToolBarTray.IsLocked="True">
                     <Button Click="CheckForUpdate" Content="Check For Updates" FontSize="12" />
-                    <Button Click="Button_Click" Content="Locate Dota 2" FontSize="12" ToolTip="{Binding Location}" Foreground="{Binding LocationColor}" Name="steamLoc"/>
-                    <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                    <Button Click="LocateDota" Content="Locate Dota 2" FontSize="12" ToolTip="{Binding Location}" Foreground="{Binding LocationColor}" Name="steamLoc"/>
+                    <StackPanel Orientation="Horizontal" Margin="5 0 10 0">
                         <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Sample Volume: " VerticalAlignment="Center" FontSize="18"></TextBlock>
                         <Slider AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="0" Orientation="Horizontal" Minimum="0" Maximum="100"  Value="50" ValueChanged="VolumnChange" Width="212" VerticalAlignment="Center" />
                     </StackPanel>
+                    <Button Click="RemoveMods" Content="Remove Mods" FontSize="12" ToolTip="Remove all installed mods" IsEnabled="{Binding DeleteAvailable}" Name="delete"/>
                 </ToolBar>
             </ToolBarTray>
             <controls:ModPackView Height="615"/>

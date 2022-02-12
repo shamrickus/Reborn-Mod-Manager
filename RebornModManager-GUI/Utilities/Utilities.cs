@@ -30,7 +30,7 @@ namespace RebornModManager.Utilities
                     throw new Exception(excp.Message);
 #endif
 #pragma warning disable CS0162 // Unreachable code detected
-                    Dialog.ShowInfo("Info", $"An exception has occurred!{Environment.NewLine}Exception: {excp.Message}");
+                    Dialog.ShowInfo("Info", $"An exception has occurred!{Environment.NewLine}Exception: {excp}");
 #pragma warning restore CS0162 // Unreachable code detected
                 }
             };

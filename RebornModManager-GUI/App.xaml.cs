@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RebornModManager-GUI
+namespace RebornModManagerGUI
 {
     /// <summary>
     /// Interaction logic for App.xaml

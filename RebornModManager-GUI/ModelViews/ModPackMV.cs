@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Core;
 using Core.Mod;
+using RebornModManager.Utilities;
 
 namespace RebornModManager.ModelViews
 {
@@ -22,6 +23,7 @@ namespace RebornModManager.ModelViews
 
         public List<Core.Mod.Mod> Mods => ModContainer.Mods;
         private List<ModMV> _vMods = null;
+        private Steam _steam;
 
         public List<ModMV> VMods
         {
@@ -31,7 +33,8 @@ namespace RebornModManager.ModelViews
 
         public ModPackMV()
         {
-            ModContainer = ModConfiguration.Read();
+            ModContainer = Core.Utilities.ReadModConfig();
+            _steam = SteamInstance.Get();
         }
 
         public List<Core.Mod.Mod> ActiveMods => Mods.Where(mod => mod.Selected).ToList();
@@ -43,23 +46,24 @@ namespace RebornModManager.ModelViews
             OnPropertyChanged(nameof(InstallText));
         }
 
-        public bool Install()
+        public string Install()
         {
-            var steam = SteamInstance.Get();
-            var dota = steam.GetGame(AppIDs.DOTA2_ID);
+            var dota = _steam.GetGame(AppIDs.DOTA2_ID);
+            if (dota == null)
+            {
+                return "Dota location is invalid";
+            }
             return dota.Install(ModContainer);
         }
 
         public string InstallText => $"Install" + (ActiveMods.Any() ? $" ({ActiveMods.Count})" : "");
 
-        public bool Enabled => ActiveMods.Any();
-    }
-
-    public static class ModConfiguration
-    {
-        public static ModPack Read()
+        public bool Enabled
         {
-            return Core.Utilities.ReadModConfig(Path.Join(Core.Utilities.AssemblyDirectory(), "config.xml"));
+            get {
+                var dota = _steam.GetGame(AppIDs.DOTA2_ID);
+                return ActiveMods.Any() && dota != null && dota.Validate();
+            }
         }
     }
 }

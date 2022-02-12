@@ -11,10 +11,13 @@ namespace Core
     public static class SteamInstance
     {
         private static Steam _steam;
-        public static Steam Get(bool pAutoDetect=true)
+        public static Steam Get()
         {
             if (_steam == null)
-                _steam = new Steam(pAutoDetect);
+            {
+                _steam = new Steam();
+            }
+                
             return _steam;
         }
     }
@@ -25,16 +28,18 @@ namespace Core
         private List<string> _otherSteamLocations;
         private Dictionary<string, Dota> _appIdToProduct;
 
-        internal Steam(bool pAutoDetect=false)
+        internal Steam()
         {
-            _appIdToProduct = new Dictionary<string, Dota>();
-            if (pAutoDetect) {
-                locateSteam(null);
-                loadAllGameLibraries();
-            }
+            Reset();
         }
 
-        private bool locateSteam(string pDefault)
+        public void Reset()
+        {
+            _appIdToProduct = new Dictionary<string, Dota>();
+        }
+
+
+        public bool LocateSteam(string pDefault)
         {
             if (!string.IsNullOrEmpty(_steamBaseLocation))
                 return true;
@@ -43,7 +48,7 @@ namespace Core
             {
                 using var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Valve\Steam");
                 _steamBaseLocation = key?.GetValue("InstallPath").ToString();
-                return true;
+                return !string.IsNullOrEmpty(_steamBaseLocation);
             }
             else
             {
@@ -77,7 +82,7 @@ namespace Core
 
         public string BaseLocation => _steamBaseLocation;
 
-        private void loadAllGameLibraries()
+        public bool LoadAllSteamLibraries()
         {
             _otherSteamLocations = new List<string>();
             var path = Path.Combine(_steamBaseLocation, "steamapps", "libraryfolders.vdf");
@@ -90,18 +95,19 @@ namespace Core
                     var found = false;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        if (found && line.Contains("\t"))
+                        if (found && line.Contains("path"))
                         {
-                            _otherSteamLocations.Add(line.Split("\t").Last().Replace("\"", ""));
+                            _otherSteamLocations.Add(line.Split("\t").Last().Replace("\"", "").Replace("\\\\", "/"));
                         }
-
-                        if (line.Contains("ContentStatsID"))
+                        else if (line.ToLower().Contains("contentstatsid"))
                         {
                             found = true;
                         }
                     }
                 }
+
             }
+            return false;
         }
 
         private string gameAtLocation(string pLocation, string pAppId)
@@ -167,6 +173,7 @@ namespace Core
 
         public void IndexAllGames()
         {
+            _appIdToProduct = new Dictionary<string, Dota>();
             mergeGameIndex(indexGames(_steamBaseLocation));
             foreach (var folder in _otherSteamLocations)
             {
@@ -180,6 +187,11 @@ namespace Core
         public Dota GetGame(string pAppId)
         {
             return _appIdToProduct.ContainsKey(pAppId) ? _appIdToProduct[pAppId] : null;
+        }
+
+        public void SetGame(string pAppId, Dota pGame)
+        {
+            _appIdToProduct[pAppId] = pGame;
         }
 
         public string LocateGame(string pAppId)

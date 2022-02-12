@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -7,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj" />
+      <ProjectReference Include="../Core/Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="CommandLineParser" Version="2.9.0-preview1" />
-      <PackageReference Include="Sharprompt" Version="2.1.1" />
+      <PackageReference Include="Sharprompt" Version="2.3.6" />
       <PackageReference Include="System.Resources.Reader" Version="4.3.0" />
       <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
     </ItemGroup>

@@ -17,7 +17,6 @@ namespace RebornModManager
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
-        private Version _currentVersion; 
 
         public MainWindow()
         {
@@ -28,15 +27,36 @@ namespace RebornModManager
             ResizeMode = ResizeMode.NoResize;
 
             _steam = SteamInstance.Get();
-            _steam.IndexAllGames();
-            _dota = _steam.GetGame(AppIDs.DOTA2_ID);
+            var steamFound = _steam.LocateSteam(null);
+            if (steamFound)
+            {
+                _steam.LoadAllSteamLibraries();
+                _steam.IndexAllGames();
+                _dota = _steam.GetGame(AppIDs.DOTA2_ID);
+            }
+            else
+            {
+                _dota = new Dota("invalid location");
+            }
+            
 
             DataContext = this;
             InitializeComponent();
 
-            d2.Title += " V" + _currentVersion;
+            d2.Title += " V" + _updater.GetAppVersion().ToString();
 
             BringToFront();
+            OnPropertyChanged(nameof(LocationColor));
+            OnPropertyChanged(nameof(Location));
+
+            if(!steamFound)
+            {
+                Dialog.ShowInfo("Steam", "Unable to find steam automatically");
+            }
+            else if(!_dota.Validate())
+            {
+                Dialog.ShowInfo("Dota", "Dota was unable to be found from Steam");
+            }
         }
 
 
@@ -49,7 +69,9 @@ namespace RebornModManager
 
         public string Location => _dota.Location;
 
-        public Brush LocationColor => !_dota.Validate() ? Brushes.Red : Brushes.White;
+        public Brush LocationColor => _dota.Validate() ? Brushes.White : Brushes.Red;
+
+        public bool DeleteAvailable => _dota.Validate();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -68,7 +90,7 @@ namespace RebornModManager
         {
             if(_updater.CheckForUpdate())
             {
-                Dialog.ShowInfo("Update Available", _updater.GetChangeLog(version));
+                Dialog.ShowInfo("Update Available", _updater.GetChangeLog());
                 return false;
             }
 
@@ -80,11 +102,31 @@ namespace RebornModManager
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        public void RemoveMods(object sender, RoutedEventArgs e)
+        {
+            var modConfig = Core.Utilities.ReadModConfig();
+            try
+            {
+                if(!_dota.Uninstall(modConfig.Name))
+                    Dialog.ShowInfo("Success", "The mod was uninstalled successfully, however parts of it were not found");
+                else
+                    Dialog.ShowInfo("Success", "Successfully removed all mods");
+            } catch (Exception exp)
+            {
+                Dialog.ShowInfo("Error", "An error occurred while attempting to uninstall the mods: " + exp.Message + "\nYou can verify the Dota 2 Integrity through steam and this will also remove all the mod files.");
+            }
+        }
+
+        public void LocateDota(object sender, RoutedEventArgs e)
         {
             _dota = new Dota(Dialog.FolderBrowser("Dota 2 location (steam/steamapps/common)", _steam.BaseLocation));
+            if (!_dota.Validate())
+                _steam.Reset();
+            else
+                _steam.SetGame(AppIDs.DOTA2_ID, _dota);
             OnPropertyChanged(nameof(LocationColor));
             OnPropertyChanged(nameof(Location));
+            OnPropertyChanged(nameof(DeleteAvailable));
         }
 
         private void VolumnChange(object sender, RoutedPropertyChangedEventArgs<double> e)

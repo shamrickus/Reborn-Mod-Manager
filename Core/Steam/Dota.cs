@@ -15,28 +15,6 @@ namespace Core
 
         private string AddonLine(string pName) => $"\t\t\tGame\t\t\t\t{pName}";
 
-        public void RemoveFile(string pName)
-        {
-            List<string> fileData = new List<string>();
-            string line;
-            using (var file = File.Open(GameInfoPath(), FileMode.Open, FileAccess.Read))
-            {
-                var reader = new StreamReader(file);
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (line == AddonLine(pName))
-                        continue;
-                    fileData.Add(line);
-                }
-            }
-
-            using (var tw = new StreamWriter(GameInfoPath()))
-            {
-                foreach (var lineData in fileData)
-                    tw.WriteLine(lineData);
-            }
-        }
-
         public void ReadFile(string pName)
         {
             string line;
@@ -60,6 +38,10 @@ namespace Core
                         }
                         else if(string.IsNullOrEmpty(line))
                             fileData.Add(line);
+                        else
+                        {
+                            Console.WriteLine("uhoh:");
+                        }
                     }
                     else
                         fileData.Add(line);
@@ -74,7 +56,7 @@ namespace Core
             using (var tw = new StreamWriter(GameInfoPath()))
             {
                 foreach (var lineData in fileData)
-                    tw.WriteLine(lineData);
+                    tw.Write(lineData + "\r\n");
             }
         }
 
@@ -97,6 +79,33 @@ namespace Core
             return 1;
         }
 
+        private bool removeFile(string pName)
+        {
+            List<string> fileData = new List<string>();
+            string line;
+            bool deleted = false;
+            using (var file = File.Open(GameInfoPath(), FileMode.Open, FileAccess.Read))
+            {
+                var reader = new StreamReader(file);
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line == AddonLine(pName))
+                    {
+                        deleted = true;
+                        continue;
+                    }
+                    fileData.Add(line);
+                }
+            }
+
+            using (var tw = new StreamWriter(GameInfoPath()))
+            {
+                foreach (var lineData in fileData)
+                    tw.Write(lineData + "\r\n");
+            }
+            return deleted;
+        }
+
         private void runPrepare(ModPack pContainer)
         {
             VpkCompiler.Clean();
@@ -105,20 +114,27 @@ namespace Core
             ReadFile(pContainer.Name);
             VpkCompiler.Copy(pContainer);
         }
-        
+
         private void runEnd(ModPack pContainer)
         {
-            CreateAndCopy(pContainer.Name);
+            createAndCopy(pContainer.Name);
         }
 
-        public bool Install(ModPack pContainer)
+        public bool Uninstall(string pName)
+        {
+            var success = removeFile(pName);
+            return removeMod(pName) && success;
+        }
+
+        public string Install(ModPack pContainer)
         {
             runPrepare(pContainer);
-            if (VpkCompiler.Run() != 0)
-                return false;
-                
+            var exitCode = VpkCompiler.Run();
+            if (exitCode != 0)
+                return $"Recieved nonzero exit code from VPK compiler {exitCode}";
+
             runEnd(pContainer);
-            return true;
+            return null;
         }
 
         public bool SDKInstall(ModPack pContainer, Steam pSteam)
@@ -130,7 +146,23 @@ namespace Core
             return true;
         }
 
-        public void CreateAndCopy(string pModName)
+        private bool removeMod(string pModName)
+        {
+            try
+            {
+                Directory.Delete(Path.Combine(_location, "game", pModName), true);
+            }
+            catch (DirectoryNotFoundException e)
+            {
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void createAndCopy(string pModName)
         {
             Directory.CreateDirectory(Path.Combine(_location, "game", pModName));
             var file = new FileInfo(VpkCompiler.VpkOutputFile);

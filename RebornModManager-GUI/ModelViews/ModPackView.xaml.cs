@@ -32,14 +32,15 @@ namespace RebornModManager.ModelViews
                 return;
             }
 
-            if (ViewModel.Install())
+            var msg = ViewModel.Install();
+            if (string.IsNullOrEmpty(msg))
                 Dialog.ShowInfo("Success",
                     $"Mods installed successfully!{Environment.NewLine}" +
                     $"Start Dota 2 to start using them{Environment.NewLine}" +
                     $"Note: Mods may need to be reinstalled after a major update");
             else
                 Dialog.ShowInfo("Failure",
-                    "Unable to install mods!");
+                    $"Unable to install mods!{Environment.NewLine}{msg}");
         }
 
         public void OnChildChecked(object sender, PropertyChangedEventArgs propertyChangedEventArgs)

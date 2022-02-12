@@ -12,7 +12,7 @@ namespace Core
         public const string VPK_TARGET = "pak01_dir.vpk";
 
         private static string VPKBinDir => Path.Join(Utilities.AssemblyDirectory(), "VPK");
-        
+
         public static string VPKBinDirectory()
         {
             if (Utilities.IsPlatform(OSPlatform.Windows))
@@ -47,9 +47,9 @@ namespace Core
             if (Utilities.IsPlatform(OSPlatform.Windows))
                 return VpkDirectory;
             else
-                return "\"" + pVPKDirectory + "\" " + VpkDirectory;
+                return "\"" + pVPKDirectory + "\" \"" + VpkDirectory + "\"";
         }
-        
+
         public static string VpkDirectory => Path.Join(VPKBinDir, VPK_DIR);
 
         public static string VpkOutputFile => Utilities.IsPlatform(OSPlatform.Windows)
@@ -60,11 +60,11 @@ namespace Core
         {
             if (pVPKDirectory == null)
                 pVPKDirectory = VPKBinDirectory();
-            
+
             var vpkProcess = Utilities.RunScript(VPKExecutable(), VPKArgs(pVPKDirectory));
             vpkProcess.WaitForExit();
             var stdOut = vpkProcess.StandardOutput.ReadToEnd();
-            if(!string.IsNullOrEmpty(stdOut)) 
+            if(!string.IsNullOrEmpty(stdOut))
                 Console.WriteLine($"VPK stdout: {stdOut}");
             var stdErr = vpkProcess.StandardError.ReadToEnd();
             if(!string.IsNullOrEmpty(stdErr))

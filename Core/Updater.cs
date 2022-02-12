@@ -45,6 +45,11 @@ namespace Core
             {
             }
         }
+
+        public Version GetAppVersion()
+        {
+            return Utilities.AppVersion();
+        }
         
         public bool CheckForUpdate()
         {

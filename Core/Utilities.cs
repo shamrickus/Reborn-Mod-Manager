@@ -15,11 +15,11 @@ namespace Core
             return RuntimeInformation.IsOSPlatform(pPlatform);
         }
 
-        public static ModPack ReadModConfig(string pConfigFile)
+        public static ModPack ReadModConfig()
         {
             XmlSerializer s = new XmlSerializer(typeof(ModPack));
             ModPack mods;
-            using (var stream = new StringReader(File.ReadAllText(pConfigFile)))
+            using (var stream = new StringReader(File.ReadAllText(Path.Join(AssemblyDirectory(), "config.xml"))))
             {
                 mods = (ModPack)s.Deserialize(stream);
             }
@@ -28,7 +28,7 @@ namespace Core
 
         public static Version AppVersion()
         {
-            return new Version(1, 0, 0);
+            return new Version(2, 0, 1);
         }
 
         public static string AssemblyDirectory() =>
@@ -58,12 +58,11 @@ namespace Core
         {
             var process = new Process
             {
-                StartInfo = new ProcessStartInfo(pShellScript)
+                StartInfo = new ProcessStartInfo(pShellScript, pArguments)
                 {
                     WindowStyle = ProcessWindowStyle.Hidden,
                     RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    Arguments = pArguments
+                    RedirectStandardError = true
                 }
             };
             process.Start();
