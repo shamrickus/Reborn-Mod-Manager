@@ -2,17 +2,18 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <RootNamespace>CLI</RootNamespace>
+        <StartupObject>CLI.Program</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="../Core/Core.csproj" />
     </ItemGroup>
-
+    
     <ItemGroup>
-      <PackageReference Include="CommandLineParser" Version="2.9.0-preview1" />
-      <PackageReference Include="Sharprompt" Version="2.3.6" />
+      <PackageReference Include="CommandLineParser" Version="2.9.1" />
+      <PackageReference Include="Sharprompt" Version="2.4.5" />
       <PackageReference Include="System.Resources.Reader" Version="4.3.0" />
       <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
     </ItemGroup>

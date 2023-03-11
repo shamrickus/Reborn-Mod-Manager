@@ -150,7 +150,7 @@
       <Type>Sound</Type>
     </FileDescr>
   </Mod>
-    <Mod>
+  <Mod>
     <DisplayName>Za Warudo for Chrono Sphere</DisplayName>
     <Description>Replaces Faceless Void's Ultimate</Description>
     <SampleFile>data/fv/warudo.mp3</SampleFile>
@@ -168,18 +168,15 @@
       <Type>Sound</Type>
     </FileDescr>
   </Mod>
-<!--
   <Mod>
-    <DisplayName></DisplayName>
-    <Description></Description>
-    <SampleFile></SampleFile>
-
+    <DisplayName>Sad Boys Song of the Siren</DisplayName>
+    <Description>Replaces Naga's Ultimate with S A D B O Y S by Yung Lean</Description>
+    <SampleFile>data/naga/sadboys.mp3</SampleFile>
     <FileDescr>
-      <Path></Path>
-      <Name></Name>
-      <SourcePath></SourcePath>
-      <Type></Type>
+      <Path>sounds/weapons/hero/naga_siren/</Path>
+      <Name>song_of_the_siren.vsnd_c</Name>
+      <SourcePath>data/naga/sadboys.vsnd_c</SourcePath>
+      <Type>Sound</Type>
     </FileDescr>
   </Mod>
--->
 </ModPack>

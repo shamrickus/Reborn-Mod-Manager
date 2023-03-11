@@ -92,16 +92,11 @@ namespace Core
                 using (var file = File.Open(path, FileMode.Open, FileAccess.Read))
                 {
                     var reader = new StreamReader(file);
-                    var found = false;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        if (found && line.Contains("path"))
+                        if (line.Contains("path"))
                         {
                             _otherSteamLocations.Add(line.Split("\t").Last().Replace("\"", "").Replace("\\\\", "/"));
-                        }
-                        else if (line.ToLower().Contains("contentstatsid"))
-                        {
-                            found = true;
                         }
                     }
                 }
