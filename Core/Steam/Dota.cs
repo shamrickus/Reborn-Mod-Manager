@@ -40,7 +40,7 @@ namespace Core
                             fileData.Add(line);
                         else
                         {
-                            Console.WriteLine("uhoh:");
+                            Console.WriteLine("Already installed.");
                         }
                     }
                     else

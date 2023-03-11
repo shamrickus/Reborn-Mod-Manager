@@ -58,9 +58,6 @@
       <None Update="data\sandking\darude.mp3">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="data\sandking\2darude.vsnd_c">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
       <None Update="data\sandking\darude.vsnd_c">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>

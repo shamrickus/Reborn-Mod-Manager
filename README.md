@@ -1,4 +1,4 @@
-#Reborn-Mod-Manager
+# Reborn-Mod-Manager
 
 ## Prereqs
 * Windows 10+/Linux
@@ -18,7 +18,7 @@
     * RMM (CLI)
     
 * Run RMM.
-* Select the mods you want and install.
+* Select the sound mods you want and install.
 * Launch dota and the sound should be installed. If there are mods you would like to see but aren't available, open an [Issue](https://github.com/shamrickus/Reborn-Mod-Manager/issues)
 
 ## Note

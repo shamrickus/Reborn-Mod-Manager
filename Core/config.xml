@@ -170,7 +170,7 @@
   </Mod>
   <Mod>
     <DisplayName>Sad Boys Song of the Siren</DisplayName>
-    <Description>Replaces Naga's Ultimate with S A D B O Y S by Yung Lean</Description>
+    <Description>Replaces Naga's Ultimate with Kyoto by Yung Lean</Description>
     <SampleFile>data/naga/sadboys.mp3</SampleFile>
     <FileDescr>
       <Path>sounds/weapons/hero/naga_siren/</Path>
