@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using MaterialDesignThemes.Wpf;
 using Ookii.Dialogs.Wpf;
 
 namespace RebornModManager.Utilities
@@ -43,7 +44,7 @@ namespace RebornModManager.Utilities
                 Description = pTitle,
                 UseDescriptionForTitle = true
             };
-            dlg.ShowDialog();
+            if (dlg.ShowDialog() == false) return null;
             return dlg.SelectedPath;
         }
 
@@ -81,7 +82,6 @@ namespace RebornModManager.Utilities
                         return;
                     try
                     {
-                        
                         _dlg.ReportProgress(currentProgress, _dlg.Text, currentProgress + "%", currentProgress);
                     }
                     catch

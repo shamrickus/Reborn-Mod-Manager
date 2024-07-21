@@ -20,5 +20,15 @@ namespace Core.Mod
                 mod.Copy(pDestination);
             }
         }
+
+        public bool Validate()
+        {
+            foreach(var mod in Mods)
+            {
+                if (!mod.Validate())
+                    return false;
+            }
+            return true;
+        }
     }
 }

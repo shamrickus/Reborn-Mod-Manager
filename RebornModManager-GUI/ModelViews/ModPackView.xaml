@@ -6,21 +6,27 @@
              xmlns:local="clr-namespace:RebornModManager.ModelViews"
              mc:Ignorable="d"
              d:DesignHeight="605" d:DesignWidth="700">
-  <Grid Height="605">
-    <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="555" VerticalAlignment="Top">
-      <ItemsControl UseLayoutRounding="False" Margin="0" Width="Auto" ItemsSource="{Binding VMods}"
+    <Grid Height="605">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="555" VerticalAlignment="Top">
+            <ItemsControl UseLayoutRounding="False" Margin="0,0,0,15" Width="Auto" ItemsSource="{Binding VMods}"
                     ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"
                     HorizontalAlignment="Left" >
-        <ItemsControl.ItemTemplate>
-          <DataTemplate>
-                <local:ModView ViewModel="{Binding}"/>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-      </ItemsControl>
-    </ScrollViewer>
-    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Panel.ZIndex="5">
-        <Button Content="{Binding InstallText}" Width="655px" Height="40" IsEnabled="{Binding Enabled}"  Panel.ZIndex="5" Click="Install" />
-        <Button Content="Select All" Click="SelectAll" Height="40" Margin="7 0 0 0" />
-    </StackPanel>
-  </Grid>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:ModView ViewModel="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Panel.ZIndex="5">
+            <Button Name="InstallBtn" Width="645" Height="40" IsEnabled="{Binding Enabled}" Click="Install" >
+                <Grid VerticalAlignment="Center" Width="600">
+                    <TextBlock Text="{Binding InstallText}" HorizontalAlignment="Center" />
+                    <ProgressBar HorizontalAlignment="Right" IsIndeterminate="True" Style="{StaticResource MaterialDesignCircularProgressBar}" 
+                                 Value="0" Foreground="White" Visibility="{Binding Installing}"/>
+                </Grid>
+            </Button>
+            <Button Content="Select All" Click="SelectAll" Height="40" Margin="7 0 0 0" />
+        </StackPanel>
+    </Grid>
 </UserControl>

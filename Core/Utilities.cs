@@ -28,7 +28,7 @@ namespace Core
 
         public static Version AppVersion()
         {
-            return new Version(2, 1, 0);
+            return new Version(2, 2, 0);
         }
 
         public static string AssemblyDirectory() =>

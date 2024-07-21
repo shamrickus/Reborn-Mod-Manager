@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using NAudio.Utils;
 using NAudio.Wave;
 
 namespace RebornModManager.Providers
@@ -7,12 +9,14 @@ namespace RebornModManager.Providers
     public static class AudioManager
     {
         private static WaveOutEvent _device = new WaveOutEvent();
-        private static AudioFileReader _file;
+        private static Dictionary<string, AudioFileReader> _files;
         private static TimeSpan _duration = TimeSpan.Zero;
+        private static AudioFileReader _activeFile;
         public static bool CurrentlyPlaying => _device.PlaybackState == PlaybackState.Playing;
 
         static AudioManager()
         {
+            _files = new Dictionary<string, AudioFileReader>();
             _device.PlaybackStopped += (sender, args) =>
             {
                 PlaybackChanged?.Invoke();
@@ -22,13 +26,22 @@ namespace RebornModManager.Providers
 
         public static bool PlayFile(string pFile)
         {
-            _file = new AudioFileReader(pFile);
+            _files.TryGetValue(pFile, out var file);
+            if (file == null)
+            {
+                file = new AudioFileReader(pFile);
+                _files.Add(pFile, file);
+            } else
+            {
+                file.Seek(0, System.IO.SeekOrigin.Begin);
+            }
             if (!CurrentlyPlaying)
             {
                 try
                 {
-                    _duration = _file.TotalTime;
-                    _device.Init(_file);
+                    _duration = file.TotalTime;
+                    _device.Init(file);
+                    _activeFile = file;
                     _device.Play();
                     PlaybackChanged?.Invoke();
                     return true;
@@ -47,6 +60,8 @@ namespace RebornModManager.Providers
             return _duration.TotalSeconds;
         }
 
+        public static double GetElapsedSeconds => _device.GetPositionTimeSpan().TotalSeconds;
+
         public static void ChangeVolumn(float pValue)
         {
             _device.Volume = pValue;
@@ -57,8 +72,8 @@ namespace RebornModManager.Providers
 
         public static bool PlayingFile(string pSampleFile)
         {
-            if(_file != null)
-                return _file.FileName.Split('\\').Last() == pSampleFile.Split('\\').Last();
+            if(_activeFile != null)
+                return _activeFile.FileName.Split('\\').Last() == pSampleFile.Split('\\').Last();
             return false;
         }
 

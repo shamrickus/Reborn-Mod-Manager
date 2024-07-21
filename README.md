@@ -2,7 +2,7 @@
 
 ## Prereqs
 * Windows 10+/Linux
-* .NET 7.0 (semi-optional, see Installation)
+* .NET 8.0 (semi-optional, see Installation)
 * Steam & Dota 2
 
 ## Installation
@@ -26,7 +26,7 @@
 
 
 ## Dev Notes
-* .NET 7 SDK
+* .NET 8 SDK
 
 # Building 
 - Run `dotnet restore`

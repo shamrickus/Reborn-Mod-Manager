@@ -5,18 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="475" d:DesignWidth="700">
+             d:DesignHeight="475" d:DesignWidth="680">
     <Grid>
-        <materialDesign:Card FontSize="36" Padding="16" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,5,0,0">
-            <StackPanel Orientation="Vertical" MinWidth="700">
-                <TextBlock Margin="0 0 0 10" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding DisplayName}" FontSize="32" />
-                <TextBlock Margin="0 0 0 10"  Style="{DynamicResource MaterialDesignBodyTextBlock}" Text="{Binding Description}" FontSize="16" />
+        <materialDesign:Card FontSize="36" Padding="16" Width="Auto" HorizontalAlignment="Center" materialDesign:ElevationAssist.Elevation="{Binding CardElevation}"
+                             VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,5,0,0">
+            <StackPanel Orientation="Vertical" MinWidth="680">
                 <DockPanel>
-                    <CheckBox DockPanel.Dock="Left" Content="Include" HorizontalContentAlignment="Left"
-                              HorizontalAlignment="Left" IsChecked="{Binding Selected}" />
-                    <Button DockPanel.Dock="Right" HorizontalContentAlignment="Center" Content="{Binding StopPlayText}"
+                    <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding DisplayName, Mode=OneTime}" FontSize="32" />
+                    <materialDesign:PackIcon ToolTip="Also replaces cosmetic item(s)" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="Backpack" Visibility="{Binding ReplacesCosmetic, Mode=OneTime}" Margin="5,5,0,0"/>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
+                        <TextBlock Text="Select" FontSize="16" VerticalAlignment="Center"/>
+                        <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Select"
+                                  IsChecked="{Binding Selected}" Margin="10,0,15,0" />
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Margin="0 0 0 10"  Style="{DynamicResource MaterialDesignBodyTextBlock}" Text="{Binding Description, Mode=OneTime}" FontSize="16" />
+                    <Button DockPanel.Dock="Right" HorizontalContentAlignment="Center"
                             VerticalAlignment="Center" HorizontalAlignment="Right" Click="Toggle" Width="150px"
-                            IsEnabled="{Binding IsEnabled}"/>
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.Value="{Binding RemainingTime}"
+                            IsEnabled="{Binding IsEnabled}" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <materialDesign:PackIcon Width="30"
+                                     Height="30"
+                                     Kind="{Binding GetIcon}"
+                                     VerticalAlignment="Center"
+                                     ToolTip="Export pack icon as icon file (.ico)" />
+                        </StackPanel>
+                    </Button>
                 </DockPanel>
             </StackPanel>
         </materialDesign:Card>

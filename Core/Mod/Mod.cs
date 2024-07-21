@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace Core.Mod
@@ -17,6 +18,9 @@ namespace Core.Mod
         [XmlElement("FileDescr")]
         public List<FileDescr> Files { get; set; }
 
+        [XmlElement("Offensive")]
+        public bool Offensive { get; set; }
+
         public bool Selected { get; set; }
 
         public void Copy(string pDestination)
@@ -25,6 +29,18 @@ namespace Core.Mod
             {
                 file.Copy(pDestination);
             }
+        }
+
+        public bool Validate()
+        {
+            foreach(var file in Files)
+            {
+                if (!file.Exists())
+                    return false;
+            }
+            if (!File.Exists(System.IO.Path.Join(Utilities.AssemblyDirectory(), SampleFile)))
+                return false;
+            return true;
         }
     }
 }

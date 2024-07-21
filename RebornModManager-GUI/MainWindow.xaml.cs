@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Configuration;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using Core;
 using RebornModManager.Providers;
 using RebornModManager.Utilities;
@@ -38,7 +40,6 @@ namespace RebornModManager
             {
                 _dota = new Dota("invalid location");
             }
-            
 
             DataContext = this;
             InitializeComponent();
@@ -73,10 +74,13 @@ namespace RebornModManager
 
         public bool DeleteAvailable => _dota.Validate();
 
+        public Visibility NeedToLocate => _dota.Validate() ? Visibility.Hidden : Visibility.Visible;
+        public Visibility NoNeedToLocate => _dota.Validate() ? Visibility.Visible : Visibility.Hidden;
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Updater _updater;
-
         private Steam _steam;
         private Dota _dota;
 
@@ -117,14 +121,20 @@ namespace RebornModManager
             }
         }
 
+        public bool IncludeOffensive => modPackView?.ViewModel.IncludeOffensive ?? true;
+
         public void LocateDota(object sender, RoutedEventArgs e)
         {
-            _dota = new Dota(Dialog.FolderBrowser("Dota 2 location (steam/steamapps/common)", _steam.BaseLocation));
+            var result = Dialog.FolderBrowser("Dota 2 location (steam/steamapps/common)", _steam.BaseLocation);
+            if (result == null) return;
+            _dota = new Dota(result);
             if (!_dota.Validate())
                 _steam.Reset();
             else
                 _steam.SetGame(AppIDs.DOTA2_ID, _dota);
             OnPropertyChanged(nameof(LocationColor));
+            OnPropertyChanged(nameof(NeedToLocate));
+            OnPropertyChanged(nameof(NoNeedToLocate));
             OnPropertyChanged(nameof(Location));
             OnPropertyChanged(nameof(DeleteAvailable));
         }
@@ -132,6 +142,30 @@ namespace RebornModManager
         private void VolumnChange(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             AudioManager.ChangeVolumn(Convert.ToSingle(e.NewValue / 100));
+        }
+
+        private void IncludeOffensive_Changed(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            if(modPackView != null)
+                modPackView.ViewModel.IncludeOffensive = (e.Source as CheckBox)?.IsChecked ?? true;
+        }
+
+        private void modPackView_Loaded(object sender, RoutedEventArgs e)
+        {
+            OnPropertyChanged(nameof(IncludeOffensive));
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            e.Handled = true;
+            if (modPackView != null)
+                modPackView.ViewModel.FilterText = (e.Source as TextBox).Text;
         }
     }
 }

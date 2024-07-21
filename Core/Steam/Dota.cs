@@ -15,42 +15,49 @@ namespace Core
 
         private string AddonLine(string pName) => $"\t\t\tGame\t\t\t\t{pName}";
 
-        public void ReadFile(string pName)
+        public string ReadFile(string pName)
         {
             string line;
             List<string> fileData = new List<string>();
-            using (var file = File.Open(GameInfoPath(), FileMode.Open, FileAccess.Read))
+            try
             {
-                var reader = new StreamReader(file);
-                var dotaLv = "\t\t\tGame_LowViolence\tdota_lv";
-                var lvFound = false;
-                var dotaFound = false;
-                while ((line = reader.ReadLine()) != null)
+                using (var file = File.Open(GameInfoPath(), FileMode.Open, FileAccess.Read))
                 {
-                    if(lvFound && dotaFound)
-                        fileData.Add(line);
-                    else if (lvFound)
+                    var reader = new StreamReader(file);
+                    var dotaLv = "\t\t\tGame_LowViolence\tdota_lv";
+                    var lvFound = false;
+                    var dotaFound = false;
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        if (line.Contains("dota") || line.Contains("core"))
+                        if (lvFound && dotaFound)
+                            fileData.Add(line);
+                        else if (lvFound)
                         {
-                            fileData.Add(line);
-                            dotaFound = true;
+                            if (line.Contains("dota") || line.Contains("core"))
+                            {
+                                fileData.Add(line);
+                                dotaFound = true;
+                            }
+                            else if (string.IsNullOrEmpty(line))
+                                fileData.Add(line);
+                            else
+                            {
+                                Console.WriteLine("Already installed.");
+                            }
                         }
-                        else if(string.IsNullOrEmpty(line))
-                            fileData.Add(line);
                         else
+                            fileData.Add(line);
+                        if (line == dotaLv)
                         {
-                            Console.WriteLine("Already installed.");
+                            fileData.Add(AddonLine(pName));
+                            lvFound = true;
                         }
-                    }
-                    else
-                        fileData.Add(line);
-                    if (line == dotaLv)
-                    {
-                        fileData.Add(AddonLine(pName));
-                        lvFound = true;
                     }
                 }
+            }
+            catch (IOException)
+            {
+                return $"Mods cannot be installed while Dota is running ({GameInfoPath()} is in use).";
             }
 
             using (var tw = new StreamWriter(GameInfoPath()))
@@ -58,6 +65,8 @@ namespace Core
                 foreach (var lineData in fileData)
                     tw.Write(lineData + "\r\n");
             }
+
+            return null;
         }
 
         public int TrySDKInstalls(Steam pSteam)
@@ -106,13 +115,19 @@ namespace Core
             return deleted;
         }
 
-        private void runPrepare(ModPack pContainer)
+        private string runPrepare(ModPack pContainer)
         {
             VpkCompiler.Clean();
             VpkCompiler.Create();
 
-            ReadFile(pContainer.Name);
+            var result = ReadFile(pContainer.Name);
+            if (result != null)
+            {
+                return result;
+            }
             VpkCompiler.Copy(pContainer);
+
+            return null;
         }
 
         private void runEnd(ModPack pContainer)
@@ -128,7 +143,11 @@ namespace Core
 
         public string Install(ModPack pContainer)
         {
-            runPrepare(pContainer);
+            var result = runPrepare(pContainer);
+            if(result != null)
+            {
+                return result;
+            }
             var exitCode = VpkCompiler.Run();
             if (exitCode != 0)
                 return $"Recieved nonzero exit code from VPK compiler {exitCode}";
@@ -152,10 +171,10 @@ namespace Core
             {
                 Directory.Delete(Path.Combine(_location, "game", pModName), true);
             }
-            catch (DirectoryNotFoundException e)
+            catch (DirectoryNotFoundException)
             {
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }

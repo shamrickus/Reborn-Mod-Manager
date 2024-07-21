@@ -18,21 +18,23 @@ namespace RebornModManager.ModelViews
             DataContext = new ModPackMV(); 
             InitializeComponent();
 
-            foreach (var mod in ViewModel.VMods)
+            foreach (ModMV mod in ViewModel.VMods.SourceCollection)
             {
                 mod.PropertyChanged += OnChildChecked;
             }
         }
 
-        public void Install(object sender, RoutedEventArgs e)
+        public async void Install(object sender, RoutedEventArgs e)
         {
+            this.InstallBtn.IsEnabled = false;
             if (ViewModel.Error)
             {
                 Dialog.ShowInfo("Info", "Can't install mods, Dota 2 directory is invalid");
+                this.InstallBtn.IsEnabled = true;
                 return;
             }
 
-            var msg = ViewModel.Install();
+            var msg = await ViewModel.Install();
             if (string.IsNullOrEmpty(msg))
                 Dialog.ShowInfo("Success",
                     $"Mods installed successfully!{Environment.NewLine}" +
@@ -41,6 +43,7 @@ namespace RebornModManager.ModelViews
             else
                 Dialog.ShowInfo("Failure",
                     $"Unable to install mods!{Environment.NewLine}{msg}");
+            this.InstallBtn.IsEnabled = true;
         }
 
         public void OnChildChecked(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
@@ -53,8 +56,10 @@ namespace RebornModManager.ModelViews
 
         public void SelectAll(object sender, RoutedEventArgs e)
         {
-            foreach (var mod in ViewModel.VMods)
+            foreach (ModMV mod in ViewModel.VMods.SourceCollection)
             {
+                if (!ViewModel.IncludeOffensive && mod.Offensive)
+                    continue;
                 mod.Selected = true;
             }
         }
